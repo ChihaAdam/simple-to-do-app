@@ -29,19 +29,21 @@ function List() {
           <div>
             <Sort />
               <ul className={styles.list}>
-              {todo.map((element,index)=>
-                  <Suspense fallback={<div>loading...</div>}>
-                    <ListItem key={index}
-                            index={index}
-                            todo={element} 
-                            last={todo.length-1}
-                            moveUp={moveUp} 
-                            moveDown={moveDown} 
-                            remove={remove}
-                  />
-                  </Suspense>
-                )
-              }
+              <Suspense fallback={<div>loading...</div>}>
+                {todo.map((element,index)=>
+                    
+                      <ListItem key={index}
+                              index={index}
+                              todo={element} 
+                              last={todo.length-1}
+                              moveUp={moveUp} 
+                              moveDown={moveDown} 
+                              remove={remove}
+                    />
+                    
+                  )
+                }
+              </Suspense>
               </ul>
           </div>
         :<div className={styles.first}>enter your first task</div>
