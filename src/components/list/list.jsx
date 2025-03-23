@@ -28,7 +28,7 @@ function List() {
     <>
         {
             todo.length!=0 ?
-          <>
+          <div>
             <Sort />
             <Suspense loading={<Loading />}>
               <ul className={styles.list}>
@@ -45,7 +45,7 @@ function List() {
               }
               </ul>
             </Suspense>
-          </>
+          </div>
         :<div className={styles.first}>enter your first task</div>
         }
   </>

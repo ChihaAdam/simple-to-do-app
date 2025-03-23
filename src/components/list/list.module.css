@@ -1,16 +1,10 @@
-.move{
-    cursor: pointer;
-}
-.remove{
-    cursor: pointer;
-}
-.move:disabled{
-    cursor:not-allowed;
-}
+
 .list{
     padding: 0px;
     gap:10px;
     width: 95vw;
+    border-top: 2px solid hsl(0, 0%, 0%,0.5);
+    margin-top: 0px;
 }
 .first{
     animation: fadeIn 5s ease-in-out;

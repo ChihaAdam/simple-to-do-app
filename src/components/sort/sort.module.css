@@ -1,7 +1,6 @@
 .bar{
     display: flex;
     gap:10px;
-    border-bottom: 1px solid black;
     align-items: center;
     width: 100%;
     font-size: 18px;

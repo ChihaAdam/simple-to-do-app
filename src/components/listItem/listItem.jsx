@@ -7,9 +7,9 @@ function ListItem({todo,moveUp,moveDown,remove,index,last}) {
   return (
     <li className={styles.listItem}>
       <div className={styles.info} onClick={()=>showMore==false && setShowMore(true)}>
-        <p>{`${index+1}/ ${todo.title}`}</p>
-        <p className={styles.subInfo}>created on :{todo.creationDate.date}</p>
-        <p className={styles.subInfo}>at :{todo.creationDate.time}</p>
+        <p className={styles.title}>{`${index+1}/ ${todo.title}`}</p>
+        <p className={styles.subInfo}>• created on : {todo.creationDate.date}</p>
+        <p className={styles.subInfo}>• at : {todo.creationDate.time}</p>
         {
           showMore ? <UpdateComponent discard={()=>setShowMore(false)} index={index} /> : null
         }
