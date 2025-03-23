@@ -1,8 +1,8 @@
-import { useContext,useCallback } from 'react';
-import ListItem from '../listItem/listItem';
+import { useContext,useCallback, lazy,Suspense } from 'react';
 import styles from './list.module.css'
 import { todoContext } from '../mainApp/mainApp.jsx';
 import Sort from '../sort/sort';
+const ListItem = lazy(()=>import('../listItem/listItem'));
 function List() {
   const [todo,setTodo] =useContext(todoContext);
 
@@ -30,7 +30,8 @@ function List() {
             <Sort />
               <ul className={styles.list}>
               {todo.map((element,index)=>
-                  <ListItem key={index}
+                  <Suspense fallback={<div>loading...</div>}>
+                    <ListItem key={index}
                             index={index}
                             todo={element} 
                             last={todo.length-1}
@@ -38,6 +39,7 @@ function List() {
                             moveDown={moveDown} 
                             remove={remove}
                   />
+                  </Suspense>
                 )
               }
               </ul>
