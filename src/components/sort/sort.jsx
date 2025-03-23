@@ -10,7 +10,7 @@ function Sort() {
 
   const handleSort=(type,mode)=>{
     const sorted = listSort(todo,type,mode);
-    setSortType(type);
+        setSortType(type);
     setSortMode(mode);
     setTodo([...sorted]);
   }

@@ -6,12 +6,21 @@
 .loading{
     width:45px;
     height:45px;
+    position: fixed;
+    font-size: 1.3em;
     border-radius:50%;
-    border-right: 5px solid rgb(146, 0, 199);
-    border-left: 5px solid blue;
-    border-bottom: 5px solid transparent;
-    border-top: 5px solid transparent;
+    border-right: 4px solid rgb(146, 0, 199);
+    border-left: 4px solid blue;
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
     animation:rotate 1.5s ease-in-out infinite;
+}
+.rotation{
+    position: relative;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @keyframes rotate{
     from{
