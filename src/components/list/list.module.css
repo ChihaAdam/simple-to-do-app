@@ -1,0 +1,25 @@
+.move{
+    cursor: pointer;
+}
+.remove{
+    cursor: pointer;
+}
+.move:disabled{
+    cursor:not-allowed;
+}
+.list{
+    padding: 0px;
+    gap:10px;
+    width: 100vw;
+}
+.first{
+    animation: fadeIn 5s ease-in-out;
+}
+@keyframes FadeIn {
+    from{
+        opacity:0;;
+    }
+    to{
+        opacity: 1;
+    }
+}
