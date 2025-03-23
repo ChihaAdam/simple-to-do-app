@@ -10,7 +10,7 @@
 .list{
     padding: 0px;
     gap:10px;
-    width: 100vw;
+    width: 95vw;
 }
 .first{
     animation: fadeIn 5s ease-in-out;

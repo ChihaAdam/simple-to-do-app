@@ -1,6 +1,9 @@
+import { useContext } from 'react';
 import ListItem from '../listItem/listItem';
 import styles from './list.module.css'
-function List({todo,setTodo}) {
+import { todoContext } from '../../App';
+function List() {
+  const [todo,setTodo] =useContext(todoContext);
 
   function remove(index){
       setTodo(

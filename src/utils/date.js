@@ -1,5 +1,4 @@
-const days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
-const date = new Date;
+let days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
 
 function pad(number){
@@ -8,16 +7,17 @@ function pad(number){
 
 
 export default function getDate(){
+    let date = new Date;
     let info= {
         date:null,
         time:null
     }
-    const day = pad(date.getDate());
-    const month = pad(date.getMonth());
-    const year = date.getFullYear();
-    const seconds=pad(date.getSeconds());
-    const minutes=pad(date.getHours());
-    const hours = pad(date.getHours())
+    let day = pad(date.getDate());
+    let month = pad(date.getMonth());
+    let year = date.getFullYear();
+    let seconds=pad(date.getSeconds());
+    let minutes=pad(date.getMinutes());
+    let hours = pad(date.getHours())
     info.date=`${days[date.getDay()]} • ${day}-${month}-${year}`;
     info.time=`${hours}:${minutes}:${seconds}`;
     return info;

@@ -27,37 +27,7 @@
     color:grey;
     font-weight: 500;
 }
-.buttons{
-    display:flex;
-    gap:10px;
-}
-.move , .remove{
-    font-size: 18px;
-    padding:5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-.move{
-    background-color: green;
-}
-.move:hover{
-    background-color: hsl(120, 100%, 35%);
-}
-.move:disabled{
-    background-color: hsl(120, 50%, 25%);
-    opacity: 0.5;
-    color:unset;
-    cursor: not-allowed;
-}
-.remove{
-    background-color: red;
-    color:white;
-    font-weight: bold;
-}
-.remove:hover{
-    background-color: hsl(0, 100%, 70%);
-}
+
 @keyframes fadeIn{
     from{
         opacity: 0;

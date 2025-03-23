@@ -14,12 +14,13 @@ function addInfo(taskToAdd){
 function Input({setTodo,todo}) {
     const [task,setTask]=useState("");
     const [error,setError]=useState("");
+
     function handleFormSubmit(event){
         event.preventDefault();
         if (task.trim()=="") {
             setError("task can't be empty");
             return;
-        };
+        }
         const newTask=addInfo(task)
         setTodo([...todo,newTask]);
         setTask("");
