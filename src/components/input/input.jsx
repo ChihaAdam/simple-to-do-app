@@ -1,5 +1,5 @@
 import styles from './input.module.css'
-import { useState } from 'react'
+import { useState,useCallback } from 'react'
 import getDate from '../../utils/date';
 function addInfo(taskToAdd){
     const now=getDate();
@@ -15,17 +15,18 @@ function Input({setTodo,todo}) {
     const [task,setTask]=useState("");
     const [error,setError]=useState("");
 
-    function handleFormSubmit(event){
+    const handleFormSubmit =useCallback((event)=>{
         event.preventDefault();
         if (task.trim()=="") {
             setError("task can't be empty");
             return;
         }
-        const newTask=addInfo(task)
+        const newTask=addInfo(task);
         setTodo([...todo,newTask]);
         setTask("");
-        setError("")
-    }
+        setError("");
+    },[task]);
+    
     return (
         <>
         <form className={styles.form}>

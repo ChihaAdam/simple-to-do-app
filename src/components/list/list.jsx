@@ -1,25 +1,25 @@
-import { useContext } from 'react';
+import { useContext,useCallback } from 'react';
 import ListItem from '../listItem/listItem';
 import styles from './list.module.css'
 import { todoContext } from '../../App';
 function List() {
   const [todo,setTodo] =useContext(todoContext);
 
-  function remove(index){
-      setTodo(
-        [...todo].filter((_,i)=>index!=i)
-      )
-  }
+  const remove = useCallback((index)=>{
+    setTodo(
+      [...todo].filter((_,i)=>index!=i)
+    )
+  },[todo]);
 
-  function moveUp(index){
+  const moveUp=useCallback((index)=>{
     const aux=[...todo];
     [aux[index],aux[index-1]]=[aux[index-1],aux[index]]
     setTodo([...aux]);
-  }
+  },[todo])
 
-  function moveDown(index){
+  const moveDown=useCallback((index)=>{
     moveUp(index+1);
-  }
+  },[todo])
 
   return (
     <>
