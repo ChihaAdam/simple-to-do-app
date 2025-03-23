@@ -1,20 +1,14 @@
-import { useLocalStorage } from './utils/hooks/useLocalStorage'
-import styles from './App.module.css'
-import List from './components/list/list'
-import Input from './components/input/input'
-import { createContext} from 'react'
-export const todoContext=createContext();
+import Loading from './components/static/loadingScreen/loading';
+import {Suspense,lazy} from 'react';
+
+const MainApp = lazy(()=>import("./components/mainApp/mainApp"));
+
 function App() {
-  const [todo,setTodo]=useLocalStorage("todoAppTasks",[]);
   
   return (
-    <main className={styles.main}>
-      <h1 className={styles.title}>to do app (basic)</h1>
-      <todoContext.Provider value={[todo,setTodo]}>
-          <Input setTodo={setTodo} todo={todo} />
-          <List todo={todo} setTodo={setTodo} />
-      </todoContext.Provider>
-    </main>
+    <Suspense fallback={<Loading />}>
+      <MainApp />
+    </Suspense>
   )
 }
 

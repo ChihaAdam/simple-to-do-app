@@ -10,7 +10,7 @@
     animation: fadeIn 0.3s ease-in-out;
 }
 .listItem:hover{
-    background-color: hsl(180, 100%, 93%);
+    background-color: var(--hover-color);
 }
 .info{
     display: flex;

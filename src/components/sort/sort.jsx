@@ -1,6 +1,6 @@
 import { useContext} from 'react';
 import styles from './sort.module.css'
-import { todoContext } from '../../App';
+import { todoContext } from '../mainApp/mainApp.jsx';
 import { listSort } from '../../utils/sort';
 import { useLocalStorage } from '../../utils/hooks/useLocalStorage';
 function Sort() {

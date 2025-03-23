@@ -1,5 +1,10 @@
+:root{
+  --bg-color:hsl(0, 0%, 95%);
+  --hover-color:hsl(0, 0%, 90%);
+}
+
 body{
-  background-color: aliceblue;
+  background-color: var(--bg-color);
   display: flex;
   justify-content: center;
 }

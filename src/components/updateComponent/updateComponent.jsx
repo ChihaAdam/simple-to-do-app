@@ -1,6 +1,6 @@
 import { useContext, useState,useCallback } from 'react'
 import styles from './UpdateComponent.module.css' 
-import { todoContext } from '../../App'
+import { todoContext } from '../mainApp/mainApp.jsx';
 
 function UpdateComponent({discard,index}) {
   const [todo,setTodo]=useContext(todoContext);
