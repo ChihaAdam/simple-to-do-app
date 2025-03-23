@@ -5,6 +5,7 @@ import { todoContext } from '../../App'
 function UpdateComponent({discard,index}) {
   const [todo,setTodo]=useContext(todoContext);
   const [updated,setUpdated]=useState("");
+
   const handleChange =useCallback((event)=>{
     event.preventDefault();
     let T = [...todo];
@@ -12,6 +13,7 @@ function UpdateComponent({discard,index}) {
     setTodo([...T]);
     discard();
   },[updated]);
+  
   return (
     <form className={styles.form}>
 
@@ -21,14 +23,14 @@ function UpdateComponent({discard,index}) {
         </input>
 
         <input type="button"
-               className={styles.button}
+               className={styles.discard}
                value="❌" 
                onClick={discard}>
         </input>
 
         <input type="submit"
                value="✔️" 
-               className={styles.button}
+               className={styles.submit}
                disabled={updated.trim()===""} 
                onClick={(event)=>handleChange(event)}>
         </input>

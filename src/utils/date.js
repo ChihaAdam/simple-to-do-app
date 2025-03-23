@@ -1,6 +1,5 @@
 let days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
-
 function pad(number){
     return `${number<10? "0":""}${number}`;
 }

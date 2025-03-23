@@ -5,7 +5,8 @@ import Input from './components/input/input'
 import { createContext} from 'react'
 export const todoContext=createContext();
 function App() {
-  const [todo,setTodo]=useLocalStorage("todoAppTasks",[])
+  const [todo,setTodo]=useLocalStorage("todoAppTasks",[]);
+  
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>to do app (basic)</h1>

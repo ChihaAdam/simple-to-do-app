@@ -2,6 +2,9 @@ import { useContext,useCallback } from 'react';
 import ListItem from '../listItem/listItem';
 import styles from './list.module.css'
 import { todoContext } from '../../App';
+import Sort from '../sort/sort';
+import { Suspense } from 'react';
+import Loading from '../static/loadingScreen/loading';
 function List() {
   const [todo,setTodo] =useContext(todoContext);
 
@@ -25,19 +28,24 @@ function List() {
     <>
         {
             todo.length!=0 ?
-            <ul className={styles.list}>
-            {todo.map((element,index)=>
-                <ListItem key={index}
-                          index={index}
-                          todo={element} 
-                          last={todo.length-1}
-                          moveUp={moveUp} 
-                          moveDown={moveDown} 
-                          remove={remove}
-                />
-              )
-            }
-            </ul>
+          <>
+            <Sort />
+            <Suspense loading={<Loading />}>
+              <ul className={styles.list}>
+              {todo.map((element,index)=>
+                  <ListItem key={index}
+                            index={index}
+                            todo={element} 
+                            last={todo.length-1}
+                            moveUp={moveUp} 
+                            moveDown={moveDown} 
+                            remove={remove}
+                  />
+                )
+              }
+              </ul>
+            </Suspense>
+          </>
         :<div className={styles.first}>enter your first task</div>
         }
   </>

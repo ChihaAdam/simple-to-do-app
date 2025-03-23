@@ -3,14 +3,17 @@ import { useState,useCallback } from 'react'
 import getDate from '../../utils/date';
 function addInfo(taskToAdd){
     const now=getDate();
+    const pure = new Date;
     return {
         title:taskToAdd,
         creationDate:{
+            pureDate:pure.getTime(),
             date:now.date,
             time:now.time
         }
     }
 }
+
 function Input({setTodo,todo}) {
     const [task,setTask]=useState("");
     const [error,setError]=useState("");
@@ -26,7 +29,7 @@ function Input({setTodo,todo}) {
         setTask("");
         setError("");
     },[task]);
-    
+
     return (
         <>
         <form className={styles.form}>

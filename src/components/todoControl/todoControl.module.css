@@ -29,3 +29,12 @@
 .remove:hover{
     background-color: hsl(0, 100%, 70%);
 }
+.move{
+    cursor: pointer;
+}
+.remove{
+    cursor: pointer;
+}
+.move:disabled{
+    cursor:not-allowed;
+}

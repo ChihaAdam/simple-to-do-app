@@ -1,5 +1,5 @@
 import { getFromLocal,setToLocal } from "../localStorage";
-import { useState,useEffect } from "react";
+import { useState,useEffect} from "react";
 
 function useLocalStorage(key,info){
     const [item,setItem]=useState(
