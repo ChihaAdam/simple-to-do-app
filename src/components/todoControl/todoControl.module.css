@@ -1,6 +1,7 @@
 .buttons{
     display:flex;
     gap:10px;
+    flex:0;
 }
 .move , .remove{
     font-size: 18px;

@@ -6,8 +6,9 @@ function ListItem({todo,moveUp,moveDown,remove,index,last}) {
   const [showMore,setShowMore]=useState(false);
   return (
     <li className={styles.listItem}>
+      <div className={styles.number}>{index+1}</div>
       <div className={styles.info} onClick={()=>showMore==false && setShowMore(true)}>
-        <p className={styles.title}>{`${index+1}/ ${todo.title}`}</p>
+        <p className={styles.title}>{` ${todo.title}`}</p>
         <p className={styles.subInfo}>• created on : {todo.creationDate.date}</p>
         <p className={styles.subInfo}>• at : {todo.creationDate.time}</p>
         {

@@ -1,4 +1,4 @@
-import { useContext , useCallback} from 'react';
+import { useContext} from 'react';
 import styles from './sort.module.css'
 import { todoContext } from '../../App';
 import { listSort } from '../../utils/sort';
@@ -8,12 +8,12 @@ function Sort() {
   const [sortType,setSortType]=useLocalStorage("sortType","name");
   const [sortMode,setSortMode]=useLocalStorage("sortMode","1");
 
-  const handleSort=useCallback((type,mode)=>{
+  const handleSort=(type,mode)=>{
+    const sorted = listSort(todo,type,mode);
     setSortType(type);
     setSortMode(mode);
-    const sorted = listSort(todo,sortType,sortMode);
     setTodo([...sorted]);
-  },[todo]);
+  }
 
   return (
     <div className={styles.bar}>
