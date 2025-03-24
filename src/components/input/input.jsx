@@ -16,7 +16,8 @@ const formStyle = {
     borderRadius:"10px",
     border:"1px solid gray",
     maxWidth:"100%",
-    margin:"auto"
+    margin:"auto",
+    animation:"fadeIn 0.3s ease-in-out"
 }
 const fieldSetStyle = {
     display:"flex",

@@ -1,0 +1,33 @@
+.title{
+    font-size: 16px;
+    border:none;
+    outline: none;
+    color:black;
+    padding:5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.inputt{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+.editMode{
+    border:1px solid grey;
+}
+.editMode:focus{
+    outline:auto;
+}
+.pen{
+    opacity: 0.5;
+    transition: all 0.3s ease-in-out;
+}
+.pen:hover{
+    opacity: 1;
+}

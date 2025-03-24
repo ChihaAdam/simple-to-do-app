@@ -36,7 +36,7 @@ function Sort() {
         <Button variant={sortMode=="1"?"contained":"outlined"}
                 color="secondary"
                 onClick={()=>handleSort(sortType,"1")}>
-        <SortRounded sx={{transform:"rotateZ(-180deg)"}}/>
+        <SortRounded sx={{transform:"rotateX(-180deg)"}}/>
         </Button>
         <Button variant={sortMode=="0"?"contained":"outlined"}
                 color="secondary"

@@ -20,7 +20,12 @@ const Add={
   height:"55px",
   padding:"10px",
   borderRadius:"50%",
-  cursor:"pointer"
+  cursor:"pointer",
+  transition:"all 0.3s ease-in-out",
+  '&:hover':{
+    backgroundColor:'hsl(208, 100.00%, 45.70%)',
+    boxShadow:"0px 0px 5px 4px hsla(208, 100.00%, 55.70%,0.7)"
+  }
 }
 function MainApp() {
   const [todo,setTodo]=useLocalStorage("todoAppTasks",[]);
