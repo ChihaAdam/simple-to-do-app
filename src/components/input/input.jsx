@@ -1,18 +1,36 @@
 
 import { useState,useCallback, useContext,memo } from 'react'
-import { TextField,Box ,Button} from '@mui/material';
+import { TextField,Box ,Button, Typography} from '@mui/material';
 import getDate from '../../utils/date';
 import { todoContext } from '../mainApp/mainApp';
+import { Close } from '@mui/icons-material';
 
 const formStyle = {
     display:"flex",
-    alignItems:"center",
+    alignItems:"flex-end",
     flexDirection:"column",
-    gap:"10px"
+    gap:"10px",
+    backgroundColor:"white",
+    boxShadow:"4px 4px 3px hsla(0,0%,50%,0.3)",
+    padding:"20px",
+    borderRadius:"10px",
+    border:"1px solid gray",
+    maxWidth:"100%",
+    margin:"auto"
 }
 const fieldSetStyle = {
     display:"flex",
-    flexDirection:"column"
+    flexDirection:"column",
+    alignItems:"baseline"
+}
+const containerStyle = {
+    width:"100vw",
+    height:"100vh",
+    position:"fixed",
+    top:"0px",
+    left:"0px",
+    display:"flex",
+    alignItems:"center"
 }
 function addInfo(task){
     const now=getDate();
@@ -29,39 +47,51 @@ function addInfo(task){
     }
 }
 
-function Input() {
+function Input({close}) {
     const [task,setTask]=useState({
         title:"",
         description:""
     });
     const [todo,setTodo]=useContext(todoContext);
+
     const descriptionCharactersLimit=120;
     const descriptionCharacters=task.description.length;
     const titleCharacters=task.title.length;
     const titleCharactersLimit=30;
     const titleError =  task.title.trim()==="" || titleCharacters>titleCharactersLimit;
     const descriptionError =  descriptionCharacters>descriptionCharactersLimit;
-    const error = ( titleError || descriptionError ) ;
+    const error = ( titleError || descriptionError );
+
+
     const handleFormSubmit =useCallback((event)=>{
         event.preventDefault();
         const newTask=addInfo(task);
         setTodo([...todo,newTask]);
         setTask({title:"",description:""});
+        close();
     },[task]);
 
     return (
+        <Box sx={containerStyle}>   
         <Box onSubmit={handleFormSubmit} component="form" sx={formStyle}>
-            <Box component="div">
-            <TextField sx={fieldSetStyle}
+            <Box sx={{display:"flex",justifyContent:"space-between",width:"100%"}}>
+            <Typography variant="h5" sx={{fontWeight:"bold"}}>add a new task</Typography>
+            <Close onClick={close} sx={{cursor:"pointer"}} />
+            </Box>
+            <Box component="div" sx={fieldSetStyle}>
+            <label>title of the task</label>
+            <TextField multiline maxRows={1}
                        value={task.title}
+                       sx={{width:"350px"}}
                        onChange={(e)=>setTask({...task,title:e.target.value})}>
             </TextField>
             <label style={{color:titleError ? "red":"black"}}>{titleCharacters}/{titleCharactersLimit}</label>
             </Box>
-            <Box component="div">
-            <TextField sx={fieldSetStyle}
-                       value={task.description}
+            <Box component="div" sx={fieldSetStyle}>
+            <label>add a short description</label>
+            <TextField value={task.description}
                        multiline maxRows={4}
+                       sx={{width:"350px"}}
                        onChange={(e)=>setTask({...task,description:e.target.value})}>
             </TextField>
             <label style={{color:descriptionError ? "red":"black"}}>{descriptionCharacters}/{descriptionCharactersLimit}</label>
@@ -70,6 +100,7 @@ function Input() {
                     disabled={error}
                     onClick={handleFormSubmit}
                     variant="contained"> add task</Button>
+        </Box>
         </Box>
     )
 }

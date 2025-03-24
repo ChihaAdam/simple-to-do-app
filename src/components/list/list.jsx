@@ -24,10 +24,10 @@ function List() {
 
   return (
     <>
+        <Sort />
         {
             todo.length!=0 ?
           <div>
-            <Sort />
               <ul className={styles.list}>
               <Suspense fallback={<div>loading...</div>}>
                 {todo.map((element,index)=>
