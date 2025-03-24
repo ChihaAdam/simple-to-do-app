@@ -1,5 +1,5 @@
 import { AppBar,Typography,Toolbar, CssBaseline } from "@mui/material"
-import { ListAlt } from "@mui/icons-material"
+import { ListAlt} from "@mui/icons-material"
 
 const navStyle = {
     width:"100vw",
@@ -11,7 +11,6 @@ function Navbar() {
     <>
         <CssBaseline />
     <AppBar position="relative" sx={{width:"100vw"}}>
-        
         <Toolbar sx={navStyle}>
         <ListAlt />
         <Typography variant="h4">To do list app</Typography>

@@ -19,7 +19,6 @@ function addInfo(task){
     return {
         id:crypto.randomUUID(),
         title:task.title,
-        showMore:false,
         description:task.description,
         creationDate:{
             pureDate:pure.getTime(),

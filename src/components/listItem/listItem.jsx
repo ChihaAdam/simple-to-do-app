@@ -4,33 +4,24 @@ import styles from './listItem.module.css'
 import {useContext, useState} from 'react'
 import { Suspense,lazy } from 'react';
 import { Button } from '@mui/material';
+import { BorderBottom, Margin } from '@mui/icons-material';
 const UpdateComponent = lazy(()=>import("../updateComponent/updateComponent"));
 
 const handleShowBtnStyle = {
-  maxWidth:"150px"
+  width:"150px"
 }
-
 function ListItem({moveUp,moveDown,remove,index,last}) {
   const [todos,setTodos]=useContext(todoContext);
+  const [showMore,setShowMore]=useState(false);
   const todo = todos[index];
-  function handleShowMore(){
-    let T=[...todos];
-    T[index].showMore=true
-    setTodos([...T]);
-  }
-  function handleShowLess(){
-    let T=[...todos];
-    T[index].showMore=false
-    setTodos([...T]);
-  }
   return (
     <li className={styles.listItem}>
       
       <div className={styles.info}>
-        <p className={styles.title}>{` ${todo.title}`}</p>
-        <Button sx={handleShowBtnStyle} onClick={todo.showMore ? handleShowLess:handleShowMore}>{todo.showMore ? 'show less':'show more'}</Button>
+        <p className={styles.title}><span>{index+1}/</span> {todo.title}</p>
+        <Button sx={handleShowBtnStyle} onClick={()=>setShowMore(!showMore)}>{showMore ? 'show less':'show more'}</Button>
           {
-            todo.showMore ? 
+            showMore ? 
             <>
               <div className={styles.infoContainer}>
                 <p className={styles.subInfo}>• created on : {todo.creationDate.date}</p>

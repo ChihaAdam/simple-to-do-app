@@ -17,7 +17,13 @@
 .info > *{
     margin: 0px;
 }
-
+.title > span {
+    font-weight: bold;
+    font-size: 18px;
+}
+.title{
+    font-size: 15px;
+}
 .subInfo{
     color:grey;
     font-weight: 500;

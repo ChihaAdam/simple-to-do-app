@@ -1,6 +1,7 @@
 import { useContext, useState,useCallback } from 'react'
 import { todoContext } from '../mainApp/mainApp.jsx';
-import { TextField,Box ,Button} from '@mui/material';
+import { TextField,Box ,Button, ButtonGroup} from '@mui/material';
+import { Close, Update } from '@mui/icons-material';
 
 const formStyle = {
   display:"flex",
@@ -26,17 +27,19 @@ function UpdateComponent({discard,index}) {
         <TextField onChange={(e)=>setUpdated(e.target.value)}>
         </TextField>
 
+        <ButtonGroup>
         <Button color="warning"
                 variant='contained'
                 onClick={discard}>
-          discard
+          <Close />
         </Button>
 
         <Button variant='contained'
                 disabled={updated.trim()===""} 
                 onClick={(event)=>handleChange(event)}>
-        update
+        <Update />
         </Button>
+        </ButtonGroup>
 
     </Box>
   )

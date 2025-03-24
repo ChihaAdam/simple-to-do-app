@@ -1,33 +1,36 @@
 
-import { Button,Box } from '@mui/material'
+import { Done, MoveDown, MoveUp } from '@mui/icons-material'
+import { Button,Box, ButtonGroup } from '@mui/material'
 const gap = {
   display:"flex",
-  gap:"10px"
+  width:"220px",
+  justifyContent:"space-between",
 }
 function TodoControl({disabledUp,disabledDown,moveUp,moveDown,remove}) {
   return (
-    <Box sx={gap}>
-        <Button 
+    <ButtonGroup>
+        <Button
             onClick={remove} 
-            color="error"
-            variant='contained'>
-                delete
+            color="primary">
+        <Done />
         </Button>
-        <Button 
-            disabled={disabledUp}
+        {
+          !disabledUp &&
+          <Button 
             onClick={moveUp} 
-            color="success"
-            variant='contained'>
-        move up
+            color="secondary">
+          <MoveUp />
         </Button>
-        <Button 
-            disabled={disabledDown}
+        }
+        {
+          !disabledDown &&
+          <Button 
             onClick={moveDown}
-            color="success"
-            variant='contained'>
-         move down
+            color="secondary">
+         <MoveDown />
         </Button>
-    </Box>
+        }
+    </ButtonGroup>
   )
 }
 
