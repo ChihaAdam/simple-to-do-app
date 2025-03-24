@@ -32,13 +32,13 @@ function List() {
               <Suspense fallback={<div>loading...</div>}>
                 {todo.map((element,index)=>
                     
-                      <ListItem key={index}
-                              index={index}
-                              todo={element} 
-                              last={todo.length-1}
-                              moveUp={moveUp} 
-                              moveDown={moveDown} 
-                              remove={remove}
+                      <ListItem key={element.id}
+                                index={index}
+                                todo={element} 
+                                last={todo.length-1}
+                                moveUp={moveUp} 
+                                moveDown={moveDown} 
+                                remove={remove}
                     />
                     
                   )

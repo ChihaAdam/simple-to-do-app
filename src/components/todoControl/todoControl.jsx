@@ -1,26 +1,33 @@
-import styles from './TodoControl.module.css'
+
+import { Button,Box } from '@mui/material'
+const gap = {
+  display:"flex",
+  gap:"10px"
+}
 function TodoControl({disabledUp,disabledDown,moveUp,moveDown,remove}) {
   return (
-    <div className={styles.buttons}>
-        <button 
+    <Box sx={gap}>
+        <Button 
             onClick={remove} 
-            className={styles.remove}>
+            color="error"
+            variant='contained'>
                 delete
-        </button>
-        <button 
+        </Button>
+        <Button 
             disabled={disabledUp}
             onClick={moveUp} 
-            className={styles.move}>
-            
-                ☝️
-        </button>
-        <button 
+            color="success"
+            variant='contained'>
+        move up
+        </Button>
+        <Button 
             disabled={disabledDown}
             onClick={moveDown}
-            className={styles.move}>
-                👇
-        </button>
-    </div>
+            color="success"
+            variant='contained'>
+         move down
+        </Button>
+    </Box>
   )
 }
 

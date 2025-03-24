@@ -1,10 +1,19 @@
-import styles from './input.module.css'
+
 import { useState,useCallback } from 'react'
+import { TextField,Box ,Button} from '@mui/material';
 import getDate from '../../utils/date';
+
+const formStyle = {
+    display:"flex",
+    alignItems:"center",
+    gap:"10px"
+}
+
 function addInfo(taskToAdd){
     const now=getDate();
     const pure = new Date;
     return {
+        id:crypto.randomUUID(),
         title:taskToAdd,
         creationDate:{
             pureDate:pure.getTime(),
@@ -16,7 +25,7 @@ function addInfo(taskToAdd){
 
 function Input({setTodo,todo}) {
     const [task,setTask]=useState("");
-    const [error,setError]=useState("");
+    const error = (task.trim()==="") ;
 
     const handleFormSubmit =useCallback((event)=>{
         event.preventDefault();
@@ -27,27 +36,18 @@ function Input({setTodo,todo}) {
         const newTask=addInfo(task);
         setTodo([...todo,newTask]);
         setTask("");
-        setError("");
     },[task]);
 
     return (
-        <>
-        <form className={styles.form}>
-            <input type="text" 
-                   className={styles.text}
-                   value={task}
-                   onChange={(e)=>setTask(e.target.value)}>
-            </input>
-            <input onClick={handleFormSubmit}
-                   className={styles.submit}
-                   type="submit" 
-                   value="add task">
-            </input>
-        </form>
-        {
-            error && <div className={styles.error}>{error}</div>
-        }
-        </>
+        <Box onSubmit={handleFormSubmit} component="form" sx={formStyle}>
+            <TextField color={error?"error":"primary"}
+                       value={task}
+                       onChange={(e)=>setTask(e.target.value)}>
+            </TextField>
+            <Button component="submit"
+                    disabled={error}
+                    variant="contained"> add task</Button>
+        </Box>
     )
 }
 

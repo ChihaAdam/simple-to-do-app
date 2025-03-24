@@ -1,6 +1,12 @@
 import { useContext, useState,useCallback } from 'react'
-import styles from './UpdateComponent.module.css' 
 import { todoContext } from '../mainApp/mainApp.jsx';
+import { TextField,Box ,Button} from '@mui/material';
+
+const formStyle = {
+  display:"flex",
+  alignItems:"center",
+  gap:"10px"
+} 
 
 function UpdateComponent({discard,index}) {
   const [todo,setTodo]=useContext(todoContext);
@@ -15,27 +21,24 @@ function UpdateComponent({discard,index}) {
   },[updated]);
   
   return (
-    <form className={styles.form}>
+    <Box sx={formStyle} component="form" onSubmit={handleChange}>
 
-        <input type="text" 
-               className={styles.text}
-               onChange={(e)=>setUpdated(e.target.value)}>
-        </input>
+        <TextField onChange={(e)=>setUpdated(e.target.value)}>
+        </TextField>
 
-        <input type="button"
-               className={styles.discard}
-               value="❌" 
-               onClick={discard}>
-        </input>
+        <Button color="warning"
+                variant='contained'
+                onClick={discard}>
+          discard
+        </Button>
 
-        <input type="submit"
-               value="✔️" 
-               className={styles.submit}
-               disabled={updated.trim()===""} 
-               onClick={(event)=>handleChange(event)}>
-        </input>
+        <Button variant='contained'
+                disabled={updated.trim()===""} 
+                onClick={(event)=>handleChange(event)}>
+        update
+        </Button>
 
-    </form>
+    </Box>
   )
 }
 
