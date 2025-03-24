@@ -1,19 +1,15 @@
-import { todoContext } from '../mainApp/mainApp';
+import { useState } from 'react';
 import TodoControl from '../todoControl/todoControl';
 import styles from './listItem.module.css'
-import {useContext, useState} from 'react'
-import { Suspense,lazy } from 'react';
+import { Suspense,lazy,memo } from 'react';
 import { Button } from '@mui/material';
-import { BorderBottom, Margin } from '@mui/icons-material';
 const UpdateComponent = lazy(()=>import("../updateComponent/updateComponent"));
 
 const handleShowBtnStyle = {
   width:"150px"
 }
-function ListItem({moveUp,moveDown,remove,index,last}) {
-  const [todos,setTodos]=useContext(todoContext);
+function ListItem({todo,moveUp,moveDown,remove,index,last}) {
   const [showMore,setShowMore]=useState(false);
-  const todo = todos[index];
   return (
     <li className={styles.listItem}>
       
@@ -45,4 +41,4 @@ function ListItem({moveUp,moveDown,remove,index,last}) {
   )
 }
 
-export default ListItem
+export default memo(ListItem)

@@ -1,3 +1,5 @@
+
+import { Animation } from '@mui/icons-material'
 import styles from './loading.module.css'
 
 function Loading() {
@@ -5,9 +7,8 @@ function Loading() {
     <div className={styles.main}>
         <div className={styles.rotation}>
         <div className={styles.loading}></div>
-        🐼
+        <Animation />
         </div>
-        <h4>loading ...</h4>
     </div>     
   )
 }

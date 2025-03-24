@@ -1,6 +1,6 @@
 import { useLocalStorage } from '../../utils/hooks/useLocalStorage'
 import styles from './mainApp.module.css'
-import { Suspense,lazy } from 'react'
+import { Suspense,lazy, memo } from 'react'
 
 import { createContext} from 'react'
 import Loading from '../static/loadingScreen/loading'
@@ -33,4 +33,4 @@ function MainApp() {
   )
 }
 
-export default MainApp
+export default memo(MainApp)

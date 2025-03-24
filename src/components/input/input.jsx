@@ -1,7 +1,8 @@
 
-import { useState,useCallback } from 'react'
+import { useState,useCallback, useContext,memo } from 'react'
 import { TextField,Box ,Button} from '@mui/material';
 import getDate from '../../utils/date';
+import { todoContext } from '../mainApp/mainApp';
 
 const formStyle = {
     display:"flex",
@@ -28,11 +29,12 @@ function addInfo(task){
     }
 }
 
-function Input({setTodo,todo}) {
+function Input() {
     const [task,setTask]=useState({
         title:"",
         description:""
     });
+    const [todo,setTodo]=useContext(todoContext);
     const descriptionCharactersLimit=120;
     const descriptionCharacters=task.description.length;
     const titleCharacters=task.title.length;
@@ -72,4 +74,4 @@ function Input({setTodo,todo}) {
     )
 }
 
-export default Input
+export default memo(Input)

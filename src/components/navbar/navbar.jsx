@@ -1,5 +1,6 @@
 import { AppBar,Typography,Toolbar, CssBaseline } from "@mui/material"
 import { ListAlt} from "@mui/icons-material"
+import { memo } from "react"
 
 const navStyle = {
     width:"100vw",
@@ -20,4 +21,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default memo(Navbar)
