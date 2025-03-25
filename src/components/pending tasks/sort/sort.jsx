@@ -5,10 +5,11 @@ import { useLocalStorage } from '../../../utils/hooks/useLocalStorage';
 import { DateRange, SortByAlpha, SortRounded} from '@mui/icons-material';
 import { useDispatch} from 'react-redux';
 import { sortPendingByDate,sortPendingByName } from '../../../utils/state/slices/pendingTodo';
-function Sort() {
+function Sort({setSearchTerm}) {
   const [sortType,setSortType]=useLocalStorage("sortType","name");
   const [sortMode,setSortMode]=useLocalStorage("sortMode","1");
   const dispatch = useDispatch();
+
   const handleSort=(type,mode)=>{   
         setSortType(type);
         setSortMode(mode);
@@ -46,7 +47,7 @@ function Sort() {
         <SortRounded />
         </Button>
         </ButtonGroup>
-        <Input></Input>
+        <Input onChange={e=>setSearchTerm(e.target.value)}></Input>
     </div>
   )
 }
