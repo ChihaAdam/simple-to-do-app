@@ -4,19 +4,22 @@ import styles from './listItem.module.css'
 import { Suspense,lazy,memo } from 'react';
 import { Button, Typography } from '@mui/material';
 import EditTitle from '../editTitle/editTitle';
+import { useSelector,useDispatch } from 'react-redux';
 const EditDescription = lazy(()=>import("../editDescription/editDescription"))
 const handleShowBtnStyle = {
   width:"150px"
 }
-function ListItem({todo,moveUp,moveDown,remove,index,last}) {
+function ListItem({todo,index,last}) {
   const [showMore,setShowMore]=useState(false);
+  
+  const pendingtodo=useSelector(state=>state.pendingTodos.value)
   return (
     <li className={styles.listItem}>
       
       <div className={styles.info}>
         <div className={styles.header}>
         <Typography variant="h5">{index+1}</Typography>
-        <EditTitle elementToEdit="" todo={todo} index={index}/>
+        <EditTitle todo={pendingtodo[index]} index={index}/>
         </div>
         <Button sx={handleShowBtnStyle} onClick={()=>setShowMore(!showMore)}>{showMore ? 'show less':'show more'}</Button>
           {
@@ -35,9 +38,7 @@ function ListItem({todo,moveUp,moveDown,remove,index,last}) {
       </div>
         <TodoControl disabledDown={index==last}
                      disabledUp={index==0}
-                     moveDown={()=>moveDown(index)}
-                     moveUp={()=>moveUp(index)}
-                     remove={()=>remove(index)}
+                     index={index}
         />
     </li>
   )

@@ -1,4 +1,4 @@
-import { useLocalStorage } from '../../utils/hooks/useLocalStorage'
+
 import styles from './mainApp.module.css'
 import { Suspense,lazy, memo,useState } from 'react'
 
@@ -6,7 +6,6 @@ import { createContext} from 'react'
 import Loading from '../static/loadingScreen/loading'
 import Navbar from '../navbar/navbar'
 import { AddTask } from '@mui/icons-material'
-import { borderRadius } from '@mui/system'
 const List =lazy(()=>import('../list/list'));
 const Input =lazy(()=>import("../input/input"))
 export const todoContext=createContext();
@@ -28,19 +27,16 @@ const Add={
   }
 }
 function MainApp() {
-  const [todo,setTodo]=useLocalStorage("todoAppTasks",[]);
   const [addTask,setAddTask]=useState(false);
   return (
     <>
     <Navbar />
     <main className={styles.main}>
-      <todoContext.Provider value={[todo,setTodo]}>
           <Suspense fallback={<Loading />}>
-            <List todo={todo} setTodo={setTodo} />
+            <List />
           </Suspense>
           <AddTask sx={Add} onClick={()=>!addTask && setAddTask(true)}/>
           {addTask && <Suspense fallback="loading"><Input close={()=>setAddTask(false)} /></Suspense>}
-      </todoContext.Provider>
     </main>
     </>
   )

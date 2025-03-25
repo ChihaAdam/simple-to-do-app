@@ -1,10 +1,10 @@
 
-import { useState,useCallback, useContext,memo } from 'react'
+import { useState,useCallback,memo } from 'react'
 import { TextField,Box ,Button, Typography} from '@mui/material';
 import getDate from '../../utils/date';
-import { todoContext } from '../mainApp/mainApp';
 import { Close } from '@mui/icons-material';
-
+import { useDispatch} from 'react-redux';
+import { addtodo } from '../../utils/state/slices/pendingTodo';
 const formStyle = {
     display:"flex",
     alignItems:"flex-end",
@@ -53,8 +53,8 @@ function Input({close}) {
         title:"",
         description:""
     });
-    const [todo,setTodo]=useContext(todoContext);
 
+    const dispatch = useDispatch();
     const descriptionCharactersLimit=120;
     const descriptionCharacters=task.description.length;
     const titleCharacters=task.title.length;
@@ -67,8 +67,7 @@ function Input({close}) {
     const handleFormSubmit =useCallback((event)=>{
         event.preventDefault();
         const newTask=addInfo(task);
-        setTodo([...todo,newTask]);
-        setTask({title:"",description:""});
+        dispatch(addtodo(newTask));
         close();
     },[task]);
 

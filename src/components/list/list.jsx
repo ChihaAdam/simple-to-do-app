@@ -1,44 +1,25 @@
 import { useContext,useCallback, lazy,Suspense } from 'react';
 import styles from './list.module.css'
-import { todoContext } from '../mainApp/mainApp.jsx';
 import Sort from '../sort/sort';
+import {useSelector } from 'react-redux';
 const ListItem = lazy(()=>import('../listItem/listItem'));
 function List() {
-  const [todo,setTodo] =useContext(todoContext);
-
-  const remove = useCallback((index)=>{
-    setTodo(
-      [...todo].filter((_,i)=>index!=i)
-    )
-  },[todo]);
-
-  const moveUp=useCallback((index)=>{
-    const aux=[...todo];
-    [aux[index],aux[index-1]]=[aux[index-1],aux[index]]
-    setTodo([...aux]);
-  },[todo])
-
-  const moveDown=useCallback((index)=>{
-    moveUp(index+1);
-  },[todo])
+  const pendingTodos = useSelector((state)=>state.pendingTodos.value);
 
   return (
     <>
         <Sort />
         {
-            todo.length!=0 ?
+            pendingTodos.length!=0 ?
           <div>
               <ul className={styles.list}>
               <Suspense fallback={<div>loading...</div>}>
-                {todo.map((element,index)=>
+                {pendingTodos.map((element,index)=>
                     
                       <ListItem key={element.id}
                                 index={index}
                                 todo={element} 
-                                last={todo.length-1}
-                                moveUp={moveUp} 
-                                moveDown={moveDown} 
-                                remove={remove}
+                                last={pendingTodos.length-1}
                     />
                     
                   )

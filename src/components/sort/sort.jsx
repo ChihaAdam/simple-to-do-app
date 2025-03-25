@@ -1,25 +1,28 @@
-import { useContext } from 'react';
+
 import styles from './sort.module.css'
-import { todoContext } from '../mainApp/mainApp.jsx';
-import { listSort } from '../../utils/sort';
 import { Button,ButtonGroup,Typography } from '@mui/material';
 import { useLocalStorage } from '../../utils/hooks/useLocalStorage';
 import { DateRange, SortByAlpha, SortRounded} from '@mui/icons-material';
+import { useDispatch} from 'react-redux';
+import { sortPendingByDate,sortPendingByName } from '../../utils/state/slices/pendingTodo';
 function Sort() {
 
-  const [todo,setTodo]=useContext(todoContext);
   const [sortType,setSortType]=useLocalStorage("sortType","name");
   const [sortMode,setSortMode]=useLocalStorage("sortMode","1");
-
-  const handleSort=(type,mode)=>{
-    const sorted = listSort(todo,type,mode);    
-    setSortType(type);
-    setSortMode(mode);
-    setTodo([...sorted]);
+  const dispatch = useDispatch();
+  const handleSort=(type,mode)=>{   
+        setSortType(type);
+        setSortMode(mode);
+        if (type=="name"){
+            dispatch(sortPendingByName(mode));
+        }    
+        else{
+            dispatch(sortPendingByDate(mode));
+        }
   }
 
   return (
-    <div className={`${styles.bar} ${todo.length==0 ? styles.Empty:null}`}>
+    <div className={`${styles.bar}`}>
         <Typography sx={{fontSize:"16px"}} variant='h6'>sort by :</Typography>
         <ButtonGroup>
         <Button variant={sortType=="name"?"contained":"outlined"}

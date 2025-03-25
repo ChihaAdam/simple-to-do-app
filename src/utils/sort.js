@@ -1,4 +1,4 @@
-function sortByName(T,mode){
+export function sortByName(T,mode){
     
     let aux=[...T];
     if (mode=="1"){
@@ -14,7 +14,7 @@ function sortByName(T,mode){
     return aux;
 }
 
-function sortByDate(T,mode){
+export function sortByDate(T,mode){
     let aux=[...T];
     if (mode=="1"){
         aux.sort(
@@ -27,11 +27,4 @@ function sortByDate(T,mode){
         )
     }
     return aux;
-}
-
-export function listSort(T,type,mode){
-    if (type=="name"){
-        return sortByName(T,mode)
-    }
-    return sortByDate(T,mode)
 }

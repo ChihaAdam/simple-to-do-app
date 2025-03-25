@@ -1,19 +1,22 @@
-import { useContext, useState ,useRef} from 'react'
+import {useState ,useRef} from 'react'
 import styles from './editTitle.module.css'
-import { todoContext } from '../mainApp/mainApp'
 import { Close, Edit, Update } from '@mui/icons-material';
 import { Button, ButtonGroup } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { editTaskTitle } from '../../utils/state/slices/pendingTodo';
 function EditTitle({todo,index}) {
+  const dispatch = useDispatch();
   const [edit,setEdit]=useState(false);
-  const [todos,setTodos]=useContext(todoContext);
   const [text,setText]=useState(todo.title);
   const numberOfCharacters=text.length;
   const allowedCharacters = 30;
   const disabled = (text.trim()==="") || numberOfCharacters>allowedCharacters;
   const handleSubmit = (event)=>{
-    let T = [...todos];
-    T[index]={...T[index],title:text.trim()}
-    setTodos([...T]);
+    event.preventDefault();
+    dispatch(editTaskTitle({
+      index:index,
+      newText:text
+    }))
     setEdit(false);
   }
   const inputRef = useRef(null);
