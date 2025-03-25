@@ -40,7 +40,9 @@ function EditTitle({todo,index}) {
                         onClick={handleSubmit}>
                     <Update />   
                 </Button>
-                <Button variant="contained" color="error" onClick={()=>setEdit(false)}>
+                <Button variant="contained" 
+                        color="error" 
+                        onClick={()=>setEdit(false)}>
                 <Close />
                 </Button>
              </ButtonGroup>

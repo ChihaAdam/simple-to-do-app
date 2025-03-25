@@ -1,14 +1,10 @@
-
 import styles from './mainApp.module.css'
 import { Suspense,lazy, memo,useState } from 'react'
-
-import { createContext} from 'react'
 import Loading from '../static/loadingScreen/loading'
 import Navbar from '../navbar/navbar'
 import { AddTask } from '@mui/icons-material'
 const List =lazy(()=>import('../list/list'));
 const Input =lazy(()=>import("../input/input"))
-export const todoContext=createContext();
 const Add={
   position:"fixed",
   top:"90%",

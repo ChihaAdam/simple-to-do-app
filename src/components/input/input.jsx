@@ -17,7 +17,7 @@ const formStyle = {
     border:"1px solid gray",
     maxWidth:"100%",
     margin:"auto",
-    animation:"fadeIn 0.3s ease-in-out"
+    animation:"fadeInTransitive 0.5s ease-in-out"
 }
 const fieldSetStyle = {
     display:"flex",
@@ -31,7 +31,10 @@ const containerStyle = {
     top:"0px",
     left:"0px",
     display:"flex",
-    alignItems:"center"
+    alignItems:"center",
+    backgroundColor:"hsla(0,0%,70%,0.2)",
+    backdropFilter:"blur(2px)",
+    animation:"fadeIn 0.3s ease-in-out"
 }
 function addInfo(task){
     const now=getDate();

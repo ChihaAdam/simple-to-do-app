@@ -4,15 +4,16 @@ import styles from './listItem.module.css'
 import { Suspense,lazy,memo } from 'react';
 import { Button, Typography } from '@mui/material';
 import EditTitle from '../editTitle/editTitle';
-import { useSelector,useDispatch } from 'react-redux';
+import {useSelector} from 'react-redux';
 const EditDescription = lazy(()=>import("../editDescription/editDescription"))
+
 const handleShowBtnStyle = {
   width:"150px"
 }
+
 function ListItem({todo,index,last}) {
   const [showMore,setShowMore]=useState(false);
-  
-  const pendingtodo=useSelector(state=>state.pendingTodos.value)
+  const pendingtodo=useSelector(state=>state.pendingTodos.value);
   return (
     <li className={styles.listItem}>
       
@@ -29,7 +30,8 @@ function ListItem({todo,index,last}) {
                 <p className={styles.subInfo}>• created on : {todo.creationDate.date}</p>
                 <p className={styles.subInfo}>• at : {todo.creationDate.time}</p>
                 <Suspense fallback="loading ...">
-                <EditDescription todo={todo} index={index} />
+                  <EditDescription todo={todo} 
+                                   index={index} />
                 </Suspense>
               </div>
             </>

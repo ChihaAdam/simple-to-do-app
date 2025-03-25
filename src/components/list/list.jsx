@@ -1,7 +1,7 @@
-import { useContext,useCallback, lazy,Suspense } from 'react';
+import {lazy,Suspense} from 'react';
 import styles from './list.module.css'
 import Sort from '../sort/sort';
-import {useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 const ListItem = lazy(()=>import('../listItem/listItem'));
 function List() {
   const pendingTodos = useSelector((state)=>state.pendingTodos.value);
@@ -19,8 +19,7 @@ function List() {
                       <ListItem key={element.id}
                                 index={index}
                                 todo={element} 
-                                last={pendingTodos.length-1}
-                    />
+                                last={pendingTodos.length-1} />
                     
                   )
                 }
