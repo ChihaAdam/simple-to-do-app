@@ -2,8 +2,8 @@ import Loading from './components/static/loadingScreen/loading';
 import {Suspense,lazy} from 'react';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import Navbar from './components/navbar/navbar';
-const Home = lazy(()=>import('./components/home/Home'));
-const PendingTodo = lazy(()=>import("./components/pending tasks/pendingTodo/pendingTodo"));
+const About = lazy(()=>import('./components/about/about.jsx'));
+const Pending = lazy(()=>import("./components/pending tasks/pendingTodo/pendingTodo"));
 const Completed = lazy(()=>import("./components/completed/completed/completed.jsx"));
 const Dashboard = lazy(()=>import("./components/dashboard/dashboard/Dashboard.jsx"));
 const NotFound = lazy(()=>import("./components/error/notFound.jsx"))
@@ -17,13 +17,13 @@ const router=createBrowserRouter([{
     {
       path:"/",
       element:<Suspense fallback={<Loading />}>
-                  <Home />
+                  <Pending />
                </Suspense>
     },
     {
-      path:"/pending",
+      path:"/about",
       element:<Suspense fallback={<Loading />}>
-                <PendingTodo />
+                <About />
               </Suspense>
     },
     {

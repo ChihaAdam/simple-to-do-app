@@ -10,3 +10,9 @@
 .Empty{
     border-bottom: 1px solid gray;
 }
+@media (max-width:500px){
+    .bar{
+        flex-wrap: wrap;
+        margin-left: 10px;
+    }
+}

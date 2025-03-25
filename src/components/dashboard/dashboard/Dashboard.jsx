@@ -3,7 +3,7 @@
 function Dashboard() {
   return (
     <div>
-      I am the dashboard route
+      not filled yet
     </div>
   )
 }

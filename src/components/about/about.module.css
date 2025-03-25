@@ -1,0 +1,34 @@
+.container{
+    max-width: 95vw;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:50vh;
+    animation: fadeInTransitive 0.3s ease-in-out;
+}
+.subContainer{
+    display: flex;
+    flex-direction:column ;
+    gap:10px;
+    flex:1;
+
+}
+.end{
+    text-align: center;
+}
+.section1,.section2{
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+@keyframes fadeInTransitive{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+  }

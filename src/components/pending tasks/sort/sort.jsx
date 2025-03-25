@@ -22,7 +22,7 @@ function Sort({setSearchTerm}) {
   }
 
   return (
-    <div className={`${styles.bar}`}>
+    <div className={styles.bar}>
         <Typography sx={{fontSize:"16px"}} variant='h6'>sort by :</Typography>
         <ButtonGroup>
         <Button variant={sortType=="name"?"contained":"outlined"}
