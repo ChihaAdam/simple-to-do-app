@@ -25,8 +25,6 @@ const Add={
 function MainApp() {
   const [addTask,setAddTask]=useState(false);
   return (
-    <>
-    <Navbar />
     <main className={styles.main}>
           <Suspense fallback={<Loading />}>
             <List />
@@ -34,7 +32,6 @@ function MainApp() {
           <AddTask sx={Add} onClick={()=>!addTask && setAddTask(true)}/>
           {addTask && <Suspense fallback="loading"><Input close={()=>setAddTask(false)} /></Suspense>}
     </main>
-    </>
   )
 }
 

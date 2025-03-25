@@ -8,6 +8,10 @@
 }
 .first{
     animation: fadeIn 5s ease-in-out;
+    border-top: 1px solid gray;
+    width:95vw;
+    text-align: center;
+    padding-top: 10px;
 }
 @keyframes FadeIn {
     from{
