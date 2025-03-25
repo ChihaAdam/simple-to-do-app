@@ -1,7 +1,7 @@
 import { AppBar,Typography,Toolbar, CssBaseline,  ButtonGroup,Button } from "@mui/material"
 import { ListAlt} from "@mui/icons-material"
 import { memo } from "react"
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation, useNavigate } from "react-router-dom"
 const navStyle = {
     width:"100vw",
     display:"flex",
@@ -11,6 +11,9 @@ const navStyle = {
     }
 }
 function Navbar({openSideBar}) {
+  const navigate=useNavigate();
+  const location = useLocation();
+  const path = location.pathname;
   return (
     <>
       <CssBaseline />
@@ -23,16 +26,24 @@ function Navbar({openSideBar}) {
             flexDirection:"column"
           }
         }}>
-          <Button variant="contained">
+          <Button variant="contained" 
+                  onClick={()=>navigate("/")} 
+                  sx={{borderBottom:(path=="/"?"1px solid white":"none")}}>
             Home
           </Button>
-          <Button variant="contained">
+          <Button variant="contained" 
+                  onClick={()=>navigate("/pending")}
+                  sx={{borderBottom:(path=="/pending"?"1px solid white":"none")}}>
             pending tasks
           </Button>
-          <Button variant="contained">
+          <Button variant="contained" 
+                  onClick={()=>navigate("/completed")}
+                  sx={{borderBottom:(path=="/completed"?"1px solid white":"none")}}>
             completed tasks
           </Button>
-          <Button variant="contained">
+          <Button variant="contained" 
+                  onClick={()=>navigate("/dashboard")}
+                  sx={{borderBottom:(path=="/dashboard"?"1px solid white":"none")}}>
             dashboard
           </Button>
         </ButtonGroup>

@@ -3,7 +3,7 @@ import styles from './editDescription.module.css'
 import { Close, Edit, Update } from '@mui/icons-material';
 import { Button, ButtonGroup } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { editTakDescription } from '../../utils/state/slices/pendingTodo';
+import { editTakDescription } from '../../../utils/state/slices/pendingTodo';
 function EditDescription({todo,index}) {
   const [edit,setEdit]=useState(false);
   const dispatch=useDispatch();

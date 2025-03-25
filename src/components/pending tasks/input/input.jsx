@@ -1,10 +1,10 @@
 
 import { useState,useCallback,memo } from 'react'
 import { TextField,Box ,Button, Typography} from '@mui/material';
-import getDate from '../../utils/date';
+import getDate from '../../../utils/date';
 import { Close } from '@mui/icons-material';
 import { useDispatch} from 'react-redux';
-import { addtodo } from '../../utils/state/slices/pendingTodo';
+import { addtodo } from '../../../utils/state/slices/pendingTodo';
 
 const formStyle = {
     display:"flex",

@@ -3,7 +3,7 @@ import styles from './editTitle.module.css'
 import { Close, Edit, Update } from '@mui/icons-material';
 import { Button, ButtonGroup } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { editTaskTitle } from '../../utils/state/slices/pendingTodo';
+import { editTaskTitle } from '../../../utils/state/slices/pendingTodo';
 function EditTitle({todo,index}) {
   const dispatch = useDispatch();
   const [edit,setEdit]=useState(false);

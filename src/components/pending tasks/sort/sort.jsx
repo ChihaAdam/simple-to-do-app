@@ -1,10 +1,10 @@
 
 import styles from './sort.module.css'
 import { Button,ButtonGroup,Typography } from '@mui/material';
-import { useLocalStorage } from '../../utils/hooks/useLocalStorage';
+import { useLocalStorage } from '../../../utils/hooks/useLocalStorage';
 import { DateRange, SortByAlpha, SortRounded} from '@mui/icons-material';
 import { useDispatch} from 'react-redux';
-import { sortPendingByDate,sortPendingByName } from '../../utils/state/slices/pendingTodo';
+import { sortPendingByDate,sortPendingByName } from '../../../utils/state/slices/pendingTodo';
 function Sort() {
   const [sortType,setSortType]=useLocalStorage("sortType","name");
   const [sortMode,setSortMode]=useLocalStorage("sortMode","1");
