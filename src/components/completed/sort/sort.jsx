@@ -3,20 +3,20 @@ import styles from './sort.module.css'
 import { Button,ButtonGroup,Input,Typography } from '@mui/material';
 import { useLocalStorage } from '../../../utils/hooks/useLocalStorage';
 import { DateRange, SortByAlpha, SortRounded} from '@mui/icons-material';
-import { useDispatch} from 'react-redux';
-import { sortPendingByDate,sortPendingByName } from '../../../utils/state/slices/pendingTodo';
+import {useDispatch} from 'react-redux';
+import { sortCompletedByDate,sortCompletedByName } from '../../../utils/state/slices/completedTodo';
 function Sort() {
-  const [sortType,setSortType]=useLocalStorage("sortType","name");
-  const [sortMode,setSortMode]=useLocalStorage("sortMode","1");
+  const [sortType,setSortType]=useLocalStorage("sortCompletedType","name");
+  const [sortMode,setSortMode]=useLocalStorage("sortCompletedMode","1");
   const dispatch = useDispatch();
   const handleSort=(type,mode)=>{   
         setSortType(type);
         setSortMode(mode);
         if (type=="name"){
-            dispatch(sortPendingByName(mode));
+            dispatch(sortCompletedByName(mode));
         }    
         else{
-            dispatch(sortPendingByDate(mode));
+            dispatch(sortCompletedByDate(mode));
         }
   }
 

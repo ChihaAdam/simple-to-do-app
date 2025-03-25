@@ -5,10 +5,14 @@ import Navbar from './components/navbar/navbar';
 const Home = lazy(()=>import('./components/home/Home'));
 const PendingTodo = lazy(()=>import("./components/pending tasks/pendingTodo/pendingTodo"));
 const Completed = lazy(()=>import("./components/completed/completed/completed.jsx"));
-const Dashboard = lazy(()=>import("./components/dashboard/dashboard/Dashboard.jsx"))
+const Dashboard = lazy(()=>import("./components/dashboard/dashboard/Dashboard.jsx"));
+const NotFound = lazy(()=>import("./components/error/notFound.jsx"))
 const router=createBrowserRouter([{
   path:"/",
   element:<Navbar />,
+  errorElement:<Suspense fallback={<Loading />}>
+                  <NotFound />
+              </Suspense>,
   children:[
     {
       path:"/",

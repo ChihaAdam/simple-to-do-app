@@ -1,18 +1,19 @@
-.main{
+.container{
     display: flex;
     flex-direction: column;
     gap:15px;
     align-items: center;
-    animation:fadeIn 0.3s ease-in-out;
     margin-top: 20px;
     height:100%;
+    animation:fadeInTransitive 0.3s ease-in-out;
 }
-
-.main > *{
-    margin: 0px;
+.empty{
+    border-top:1px solid gray;
+    padding-top:10px;
+    width:95vw;
+    text-align: center;
 }
-
-@keyframes fadeIn{
+@keyframes fadeInTransitive{
     from{
         opacity: 0;
         transform: translateY(20px);
@@ -21,14 +22,4 @@
         opacity: 1;
         transform: translateY(0px);
     }
-}
-@media(max-width:500px){
-    .main{
-        align-items: flex-start;
-    }
-    .title{
-        font-size: 2rem;
-        margin-left: 20px;
-    }
-
-}
+  }

@@ -1,8 +1,7 @@
 
 import { useState,useCallback,memo } from 'react'
-import { TextField,Box ,Button, Typography} from '@mui/material';
-import getDate from '../../../utils/date';
-import { Close } from '@mui/icons-material';
+import { TextField,Box,Input ,Button, InputLabel, DialogTitle} from '@mui/material';
+import { Close} from '@mui/icons-material';
 import { useDispatch} from 'react-redux';
 import { addtodo } from '../../../utils/state/slices/pendingTodo';
 
@@ -37,22 +36,9 @@ const containerStyle = {
     backdropFilter:"blur(2px)",
     animation:"fadeIn 0.3s ease-in-out"
 }
-function addInfo(task){
-    const now=getDate();
-    const pure = new Date;
-    return {
-        id:crypto.randomUUID(),
-        title:task.title,
-        description:task.description,
-        creationDate:{
-            pureDate:pure.getTime(),
-            date:now.date,
-            time:now.time
-        }
-    }
-}
 
-function Input({close}) {
+
+function InputElement({close}) {
     const [task,setTask]=useState({
         title:"",
         description:""
@@ -67,11 +53,9 @@ function Input({close}) {
     const descriptionError =  descriptionCharacters>descriptionCharactersLimit;
     const error = ( titleError || descriptionError );
 
-
     const handleFormSubmit =useCallback((event)=>{
         event.preventDefault();
-        const newTask=addInfo(task);
-        dispatch(addtodo(newTask));
+        dispatch(addtodo(task));
         close();
     },[task]);
 
@@ -79,16 +63,16 @@ function Input({close}) {
         <Box sx={containerStyle}>   
         <Box onSubmit={handleFormSubmit} component="form" sx={formStyle}>
             <Box sx={{display:"flex",justifyContent:"space-between",width:"100%"}}>
-            <Typography variant="h5" sx={{fontWeight:"bold"}}>add a new task</Typography>
+            <DialogTitle>Add a new task</DialogTitle>
             <Close onClick={close} sx={{cursor:"pointer"}} />
             </Box>
             <Box component="div" sx={fieldSetStyle}>
-            <label>title of the task</label>
-            <TextField multiline maxRows={1}
-                       value={task.title}
-                       sx={{width:"350px"}}
-                       onChange={(e)=>setTask({...task,title:e.target.value})}>
-            </TextField>
+            <InputLabel>Title of the task</InputLabel>
+            <Input  value={task.title}
+                    sx={{width:"350px"}}
+                    onChange={(e)=>setTask({...task,title:e.target.value})}>
+            </Input>
+            
             <label style={{color:titleError ? "red":"black"}}>{titleCharacters}/{titleCharactersLimit}</label>
             </Box>
             <Box component="div" sx={fieldSetStyle}>
@@ -109,4 +93,4 @@ function Input({close}) {
     )
 }
 
-export default memo(Input)
+export default memo(InputElement)

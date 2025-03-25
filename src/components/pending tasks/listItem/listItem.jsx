@@ -38,7 +38,8 @@ function ListItem({todo,index,last}) {
             : null
           }
       </div>
-        <TodoControl disabledDown={index==last}
+        <TodoControl todo={todo}
+                     disabledDown={index==last}
                      disabledUp={index==0}
                      index={index}
         />

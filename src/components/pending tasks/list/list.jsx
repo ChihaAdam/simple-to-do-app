@@ -4,7 +4,7 @@ import Sort from '../sort/sort';
 import {useSelector} from 'react-redux';
 import { AddTask } from '@mui/icons-material';
 const ListItem = lazy(()=>import('../listItem/listItem'));
-function List({addTask,setAddTask}) {
+function List({setAddTask}) {
   const pendingTodos = useSelector((state)=>state.pendingTodos.value);
 
   return (
@@ -29,7 +29,7 @@ function List({addTask,setAddTask}) {
           </div>
         :<div className={styles.first}>enter your first task</div>
         }
-        <AddTask className={styles.add} onClick={()=>!addTask && setAddTask(true)} />
+        <AddTask className={styles.add} onClick={()=>setAddTask(true)} />
   </>
   )
 }

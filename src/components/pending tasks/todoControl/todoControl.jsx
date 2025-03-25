@@ -3,17 +3,16 @@ import { Done, MoveDown, MoveUp } from '@mui/icons-material'
 import { Button,ButtonGroup } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import { movetodoDown, movetodoup,remove } from '../../../utils/state/slices/pendingTodo'
-const gap = {
-  display:"flex",
-  width:"220px",
-  justifyContent:"space-between",
-}
-function TodoControl({disabledUp,disabledDown,index}) {
-  const dispatch = useDispatch()
+import { completeTodo } from '../../../utils/state/slices/completedTodo'
+
+function TodoControl({todo,disabledUp,disabledDown,index}) {
+  const dispatch = useDispatch();
   return (
     <ButtonGroup>
         <Button
-            onClick={()=>dispatch(remove(index))} 
+            onClick={()=>{dispatch(completeTodo(todo));
+                          dispatch(remove(index));
+                    }} 
             color="primary">
         <Done />
         </Button>

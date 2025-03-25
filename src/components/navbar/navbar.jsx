@@ -28,22 +28,27 @@ function Navbar({openSideBar}) {
         }}>
           <Button variant="contained" 
                   onClick={()=>navigate("/")} 
-                  sx={{borderBottom:(path=="/"?"1px solid white":"none")}}>
+                  sx={{
+                        transition:"all 0.3s ease-in-out",
+                        borderBottom:(path=="/"?"1px solid white":"1px solid transparent")}}>
             Home
           </Button>
           <Button variant="contained" 
                   onClick={()=>navigate("/pending")}
-                  sx={{borderBottom:(path=="/pending"?"1px solid white":"none")}}>
+                  sx={{transition:"all 0.3s ease-in-out",
+                       borderBottom:(path=="/pending"?"1px solid white":"1px solid transparent")}}>
             pending tasks
           </Button>
           <Button variant="contained" 
                   onClick={()=>navigate("/completed")}
-                  sx={{borderBottom:(path=="/completed"?"1px solid white":"none")}}>
+                  sx={{transition:"all 0.3s ease-in-out",
+                       borderBottom:(path=="/completed"?"1px solid white":"1px solid transparent")}}>
             completed tasks
           </Button>
           <Button variant="contained" 
                   onClick={()=>navigate("/dashboard")}
-                  sx={{borderBottom:(path=="/dashboard"?"1px solid white":"none")}}>
+                  sx={{transition:"all 0.3s ease-in-out",
+                       borderBottom:(path=="/dashboard"?"1px solid white":"1px solid transparent")}}>
             dashboard
           </Button>
         </ButtonGroup>

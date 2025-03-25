@@ -25,6 +25,7 @@
     border-radius:50%;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    box-shadow:0px 0px 3px 2px hsla(0, 0%, 35%, 0.5);
 }
 .add:hover{
     background-color:hsl(208, 100.00%, 45.70%);
