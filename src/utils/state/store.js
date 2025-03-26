@@ -9,3 +9,5 @@ export const store = configureStore({
         }
     }
 )
+export const completedTasks = (state)=>state.completedTodo.value
+export const pendingTasks = (state)=>state.pendingTodos.value

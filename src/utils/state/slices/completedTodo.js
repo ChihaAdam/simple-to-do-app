@@ -24,7 +24,7 @@ const completedTodoSlice = createSlice({
     initialState,
     reducers:{
         completeTodo:(state,task)=>{
-            state.value.push(addInfo(
+            state.value.unshift(addInfo(
                                      task.payload
                             ));
             setToLocal('completedTodo',

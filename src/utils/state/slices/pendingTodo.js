@@ -1,12 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice,nanoid } from "@reduxjs/toolkit";
 import { getFromLocal, setToLocal } from "../../localStorage";
 import { sortByName,sortByDate } from "../../sort";
 import getDate from '../../date.js'
+
 function addInfo(task){
     const now=getDate();
     const pure = new Date;
     return {
-        id:crypto.randomUUID(),
+        id:nanoid(),
         title:task.title,
         description:task.description,
         creationDate:{
@@ -26,7 +27,7 @@ const pendingTodoSlice = createSlice({
     initialState,
     reducers:{
         addtodo:(state,task)=>{
-            state.value.push(addInfo(
+            state.value.unshift(addInfo(
                                      task.payload
                             ));
             setToLocal('pendingTodo',state.value);

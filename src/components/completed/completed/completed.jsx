@@ -3,13 +3,14 @@ import {List} from "@mui/material";
 import Sort from "../sort/sort";
 import styles from './completed.module.css'
 import ListElement from "../listElement/listElement";
+import {completedTasks} from '../../../utils/state/store.js'
 import { useState } from "react";
 const listStyle = {
-  borderTop:"1px solid gray"
+  borderTop:"1px solid gray",
 }
 
 function Completed() {
-  const completed = useSelector(state=>state.completedTodo.value);
+  const completed = useSelector(completedTasks);
   const [searchTerm,setSearchTerm]=useState("");
   const filtred = [...[...completed].filter((element)=>element.title.includes(searchTerm))]
   const searchResults = filtred.length

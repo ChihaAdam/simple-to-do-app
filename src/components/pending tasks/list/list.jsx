@@ -4,9 +4,10 @@ import Sort from '../sort/sort';
 import {useSelector} from 'react-redux';
 import { AddTask } from '@mui/icons-material';
 import { useState } from 'react';
+import {pendingTasks} from '../../../utils/state/store.js'
 const ListItem = lazy(()=>import('../listItem/listItem'));
 function List({setAddTask}) {
-  const pendingTodos = useSelector((state)=>state.pendingTodos.value);
+  const pendingTodos = useSelector(pendingTasks);
   const [searchTerm,setSearchTerm]=useState("");
   const filtred = [...[...pendingTodos].filter((element)=>element.title.includes(searchTerm))]
   const searchResults = filtred.length
@@ -18,8 +19,7 @@ function List({setAddTask}) {
           <div>
               <ul className={styles.list}>
               <Suspense fallback={<div>loading...</div>}>
-                {[...pendingTodos].filter((element)=>element.title.includes(searchTerm))
-                  .map((element,index)=>
+                {filtred.map((element,index)=>
                       <ListItem key={element.id}
                                 index={index}
                                 todo={element} 

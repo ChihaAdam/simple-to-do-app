@@ -1,7 +1,7 @@
 
 import { useState } from "react"
 import {ListItem,Typography,Button,Box} from "@mui/material";
-import styles from './listElement.module.css'
+import styles from './listElement.module.css';
 const listElementStyle = {
   borderBottom:"1px solid gray",
   display:"flex",
@@ -35,7 +35,7 @@ function ListElement({todo,index}) {
                   <p className={styles.subInfo}>• completed on : {todo.completionDate.date}</p>
                   <p className={styles.subInfo}>• at : {todo.completionDate.time}</p>
                   </Box>
-    </Box>}      
+    </Box>} 
     </ListItem>
       
   )
