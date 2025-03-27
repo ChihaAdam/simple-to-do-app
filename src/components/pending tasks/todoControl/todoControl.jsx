@@ -27,8 +27,8 @@ function TodoControl({todo,disabledUp,disabledDown,index}) {
         {
           !disabledDown &&
           <Button 
-            onClick={()=>dispatch(movetodoDown(index))} 
-            color="secondary">
+                  onClick={()=>dispatch(movetodoDown(index))} 
+                  color="secondary">
          <MoveDown />
         </Button>
         }

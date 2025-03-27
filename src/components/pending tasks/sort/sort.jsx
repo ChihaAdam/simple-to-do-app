@@ -5,6 +5,7 @@ import { useLocalStorage } from '../../../utils/hooks/useLocalStorage';
 import { DateRange, SortByAlpha, SortRounded} from '@mui/icons-material';
 import { useDispatch} from 'react-redux';
 import { sortPendingByDate,sortPendingByName } from '../../../utils/state/slices/pendingTodo';
+
 function Sort({setSearchTerm}) {
   const [sortType,setSortType]=useLocalStorage("sortType","name");
   const [sortMode,setSortMode]=useLocalStorage("sortMode","1");

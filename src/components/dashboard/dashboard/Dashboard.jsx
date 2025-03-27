@@ -2,7 +2,7 @@
 
 function Dashboard() {
   return (
-    <div>
+    <div className="mt-5 text-center">
       not filled yet
     </div>
   )

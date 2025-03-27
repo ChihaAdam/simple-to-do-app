@@ -17,7 +17,7 @@ function List({setAddTask}) {
         {
           searchResults!=0 ?
           <div>
-              <ul className={styles.list}>
+              <ul className="flex flex-col w-[95vw] border-t-1 border-gray-500">
               <Suspense fallback={<div>loading...</div>}>
                 {filtred.map((element,index)=>
                       <ListItem key={element.id}
@@ -34,7 +34,8 @@ function List({setAddTask}) {
           pendingTodos.length==0 ? "enter your first task" : "no results found"
         }</div>
         }
-        <AddTask className={styles.add} onClick={()=>setAddTask(true)} />
+        <AddTask className="bg-blue-500 hover:bg-blue-400 cursor-pointer text-white fixed bottom-12 right-12 rounded-full all 0.3s ease" 
+        onClick={()=>setAddTask(true)} />
   </>
   )
 }

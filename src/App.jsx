@@ -6,7 +6,7 @@ const About = lazy(()=>import('./components/about/about.jsx'));
 const Pending = lazy(()=>import("./components/pending tasks/pendingTodo/pendingTodo"));
 const Completed = lazy(()=>import("./components/completed/completed/completed.jsx"));
 const Dashboard = lazy(()=>import("./components/dashboard/dashboard/Dashboard.jsx"));
-const NotFound = lazy(()=>import("./components/error/notFound.jsx"))
+const NotFound = lazy(()=>import("./components/error/notFound.jsx"));
 const router=createBrowserRouter([{
   path:"/",
   element:<Navbar />,
