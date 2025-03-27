@@ -1,7 +1,6 @@
 .container{
     max-width: 95vw;
     margin: auto;
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -1,6 +1,6 @@
 import {lazy,Suspense} from 'react';
 import styles from './list.module.css'
-import Sort from '../sort/sort';
+import Sort from '../../sort/sort.jsx';
 import {useSelector} from 'react-redux';
 import { AddTask } from '@mui/icons-material';
 import { useState } from 'react';
@@ -13,11 +13,11 @@ function List({setAddTask}) {
   const searchResults = filtred.length
   return (
     <>
-        <Sort setSearchTerm={setSearchTerm} />
+        <Sort setSearchTerm={setSearchTerm} list="pending" />
         {
           searchResults!=0 ?
           <div>
-              <ul className="flex flex-col w-[95vw] border-t-1 border-gray-500">
+              <ul className="flex flex-col w-[95vw] border-t-1 m-auto animate-fadeInTransitive border-gray-500">
               <Suspense fallback={<div>loading...</div>}>
                 {filtred.map((element,index)=>
                       <ListItem key={element.id}

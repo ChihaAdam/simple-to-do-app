@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import {List} from "@mui/material";
-import Sort from "../sort/sort";
+import Sort from "../../sort/sort.jsx";
 import styles from './completed.module.css'
 import ListElement from "../listElement/listElement";
 import {completedTasks} from '../../../utils/state/store.js'
@@ -16,7 +16,7 @@ function Completed() {
   const searchResults = filtred.length
   return (
     <div className={styles.container}>
-    <Sort setSearchTerm={setSearchTerm} />
+    <Sort setSearchTerm={setSearchTerm} list="completed"/>
     <List sx={listStyle}>
       {
         filtred.map((todo,index)=><ListElement key={todo.id} todo={todo} index={index}/>)

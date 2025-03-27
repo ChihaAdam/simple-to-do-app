@@ -6,7 +6,7 @@ const InputElement =lazy(()=>import("../input/input"));
 function PendingTodo() {
   const [addTask,setAddTask]=useState(false);
   return (
-    <main className="flex flex-col items-center gap-6 m-4">
+    <main className="flex flex-col gap-6 ">
           <Suspense fallback={<Loading />}>
             <List setAddTask={setAddTask} />
           </Suspense>  

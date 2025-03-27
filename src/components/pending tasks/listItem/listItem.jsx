@@ -2,7 +2,6 @@ import { useState } from 'react';
 import TodoControl from '../todoControl/todoControl';
 import styles from './listItem.module.css'
 import { Suspense,lazy,memo } from 'react';
-import { Button, Typography } from '@mui/material';
 import EditTitle from '../editTitle/editTitle';
 import {useSelector} from 'react-redux';
 const EditDescription = lazy(()=>import("../editDescription/editDescription"))
@@ -15,14 +14,14 @@ function ListItem({todo,index,last}) {
   const [showMore,setShowMore]=useState(false);
   const pendingtodo=useSelector(state=>state.pendingTodos.value);
   return (
-    <li className={styles.listItem}>
+    <li className="flex justify-between items-center w-[95vw] m-auto border-b-1 border-b-gray-500 max-md:items-baseline max-md:flex-col max-md:gap-2">
       
-      <div className={styles.info}>
+      <div className="">
         <div className={styles.header}>
-        <Typography variant="h5">{index+1}</Typography>
+        <p className="text-2xl font-bold">{index+1})</p>
         <EditTitle todo={pendingtodo[index]} index={index}/>
         </div>
-        <Button sx={handleShowBtnStyle} onClick={()=>setShowMore(!showMore)}>{showMore ? 'show less':'show more'}</Button>
+        <button className="text-blue-500">{showMore?"show less":"show more"}</button>
           {
             showMore ? 
             <>

@@ -21,8 +21,8 @@ function EditTitle({todo,index}) {
   }
   const inputRef = useRef(null);
   return (
-    <div className={styles.container}>
-        <div className={styles.inputt}>
+    <div className="">
+        <div className="flex ">
         <input className={`${styles.title} ${edit? styles.editMode:null}`}
                 value={text}
                 readOnly={!edit}

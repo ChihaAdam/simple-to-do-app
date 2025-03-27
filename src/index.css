@@ -1,18 +1,12 @@
 @import "tailwindcss";
+
 :root{
   --bg-color:hsl(0, 0%, 95%);
   --hover-color:hsl(0, 0%, 90%);
 }
 
-body{
-  background-color: var(--bg-color);
-  display: flex;
-  justify-content: center;
-}
-*{
-  margin: 0px;
-  box-sizing: border-box;
-}
+
+
 @keyframes fadeInTransitive{
   from{
       opacity: 0;
@@ -39,6 +33,9 @@ body{
       transform: rotateZ(360deg);
   }
 }
-.animate-rotation{
-  animation: rotate 1.s ease-out;
+.animate-fadeIn{
+  animation: fadeIn 0.3s ease-in-out;
+}
+.animate-fadeInTransitive{
+  animation: fadeInTransitive 0.3s ease-in-out;
 }
