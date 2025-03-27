@@ -2,31 +2,24 @@
 import { lazy, useState,Suspense } from "react"
 import {ListItem,Typography,Button,Box} from "@mui/material";
 const MoreInfo = lazy (()=>import("../moreInfo/moreInfo.jsx"))
-const listElementStyle = {
-  borderBottom:"1px solid gray",
-  display:"flex",
-  flexDirection:"column",
-  width:"95vw",
-  alignItems:"baseline",
-  fontSize:"16px"
-}
 
 function ListElement({todo,index}) {
   const [showMore,setShowMore]=useState(false);
   return (
-    <ListItem key={todo.id} sx={listElementStyle}>
-    <Box sx={{
-      display:"flex",
-      gap:"10px"
-    }}>
-        <Typography variant="h5">{index+1}/</Typography>
-        <Typography variant="h6"> {todo.title}</Typography>
-    </Box>
-    <Button onClick={()=>setShowMore(!showMore)}>{showMore?"show less":"show more"}</Button> 
+    <li key={todo.id} className="border-b-1 border-b-gray-500 w-[95vw] flex flex-col items-baseline gap-0.5">
+    <div className="flex gap-2">
+        <h5 className="text-lg font-bold">{index+1}/</h5>
+        <h6>{todo.title}</h6>
+    </div>
+    <button className="text-blue-500 hover:bg-blue-100 cursor-pointer px-6
+                      transition-all duration-300 ease-in-out" 
+          onClick={()=>setShowMore(!showMore)}>
+            {showMore?"show less":"show more"}
+    </button> 
     {showMore && <Suspense fallback="loading ...">
                     <MoreInfo todo={todo}></MoreInfo>
                  </Suspense>} 
-    </ListItem>
+    </li>
       
   )
 }

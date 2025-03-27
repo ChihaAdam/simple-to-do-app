@@ -30,7 +30,7 @@ function Sort({setSearchTerm,list}) {
   }
 
   return (
-    <div className="w-[95vw] m-auto flex gap-3">
+    <div className="w-[95vw] m-auto flex gap-3 max-md:flex-wrap">
         <h4>sort by :</h4>
         <div className="flex border-1 border-blue-400 rounded-lg overflow-hidden">
         <button className={`px-4 py-1 border-r-1 border-r-blue-400 cursor-pointer transition-all 

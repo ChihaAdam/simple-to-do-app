@@ -1,5 +1,4 @@
 import {lazy,Suspense} from 'react';
-import styles from './list.module.css'
 import Sort from '../../sort/sort.jsx';
 import {useSelector} from 'react-redux';
 import { AddTask } from '@mui/icons-material';
@@ -30,12 +29,16 @@ function List({setAddTask}) {
               </ul>
           </div>
         :
-        <div className={styles.empty}>{
+        <div className="w-[95vw] m-auto border-t-1 border-t-gray-500 text-center pt-2">{
           pendingTodos.length==0 ? "enter your first task" : "no results found"
         }</div>
         }
-        <AddTask className="bg-blue-500 hover:bg-blue-400 cursor-pointer text-white fixed bottom-12 right-12 rounded-full all 0.3s ease" 
-        onClick={()=>setAddTask(true)} />
+        <div className="bg-blue-600 hover:bg-blue-500 transition-all duration-300 ease-in-out cursor-pointer hover:shadow-sm hover:shadow-blue-600
+                       text-white fixed bottom-8 right-8 rounded-full all 0.3s ease flex justify-center items-center p-3 animate-fadeIn" 
+             onClick={()=>setAddTask(true)}>
+              <AddTask className="scale-120" />
+        </div>
+        
   </>
   )
 }

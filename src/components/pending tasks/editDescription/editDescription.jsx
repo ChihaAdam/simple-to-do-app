@@ -1,7 +1,5 @@
 import { useState ,useRef} from 'react'
-import styles from './editDescription.module.css'
 import { Close, Edit, Update } from '@mui/icons-material';
-import { Button, ButtonGroup } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { editTakDescription } from '../../../utils/state/slices/pendingTodo';
 function EditDescription({todo,index}) {
@@ -9,7 +7,7 @@ function EditDescription({todo,index}) {
   const dispatch=useDispatch();
   const [text,setText]=useState(todo.description);
   const numberOfCharacters=text.length;
-  const allowedCharacters = 120;
+  const allowedCharacters = 500;
   const disabled =numberOfCharacters>allowedCharacters;
   const handleSubmit = ()=>{
     dispatch(editTakDescription({
@@ -20,34 +18,38 @@ function EditDescription({todo,index}) {
   }
   const inputRef = useRef(null);
   return (
-    <div className={styles.container}>
-        <div className={styles.inputt}>
-        <label className={styles.label}>description :</label>
-        <input className={`${styles.title} ${edit? styles.editMode:null}`}
+        <div className="flex flex-col gap-2 relative">
+        <label className="font-bold">description :</label>
+        <textarea className={`resize-none border-1 border-gray-400 ${!edit? "outline-0":""}`}
                 value={text}
                 readOnly={!edit}
+                rows="4"
                 onChange={e=>setText(e.target.value)}
                 ref={inputRef}>
-        </input>
-    {
-        !edit ? <Edit className={styles.pen} onClick={()=>{
-                                                            setEdit(true);
-                                                            inputRef.current.focus();
-                                                        }} />
-             : <ButtonGroup>
-                <Button disabled={disabled}
-                        variant="contained"
-                        onClick={handleSubmit}>
-                    <Update />   
-                </Button>
-                <Button variant="contained" color="error" onClick={()=>setEdit(false)}>
-                <Close />
-                </Button>
-             </ButtonGroup>
-    }
+        </textarea>
+        {edit && <div>{numberOfCharacters}/{allowedCharacters}</div>}
+        {
+        !edit ? <Edit className="absolute top-[45%] left-[105%] opacity-50 hover:opacity-100 cursor-pointer" 
+                      onClick={()=>{
+                                  setEdit(true);
+                                  inputRef.current.focus();
+                              }} />
+             : <div className="rounded-lg overflow-hidden w-fit">
+                <button className="bg-blue-600 text-white py-1 px-4 hover:bg-blue-700 
+                                   transition-all duration-300 ease-in-out cursor-pointer disabled:bg-gray-400 disabled:cursor-auto"
+                        onClick={handleSubmit}
+                        disabled={disabled}>
+                        <Close className="scale-130" />
+                </button>
+                <button className="bg-red-600 text-white py-1 px-4  hover:bg-red-700 
+                                   transition-all duration-300 ease-in-out cursor-pointer"
+                         onClick={()=>setEdit(false)}          >        
+                        <Update className="scale-120" />
+                </button>
+             </div>
+        }
     </div>
-    {edit && <div>{numberOfCharacters}/{allowedCharacters}</div>}
-    </div>
+
   )
 }
 

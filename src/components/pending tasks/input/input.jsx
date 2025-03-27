@@ -45,7 +45,7 @@ function InputElement({close}) {
     });
 
     const dispatch = useDispatch();
-    const descriptionCharactersLimit=120;
+    const descriptionCharactersLimit=500;
     const descriptionCharacters=task.description.length;
     const titleCharacters=task.title.length;
     const titleCharactersLimit=30;
