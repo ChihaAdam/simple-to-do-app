@@ -11,7 +11,7 @@ function ListItem({todo,index,last}) {
   return (
     <li className="flex justify-between items-baseline w-[95vw] m-auto border-b-1 
                 border-b-gray-500 max-md:items-baseline max-md:flex-col max-md:gap-2 py-1
-                animate-fadeInTransitive">
+                animate-fadeInTransitiveReverse">
       
       <div>
         <div className="flex">

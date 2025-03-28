@@ -25,7 +25,7 @@ function Navbar() {
   const pathName = location.pathname;
   const [shown,setShown]=useState(false);
   return (
-    <main className="w-screen">
+    <>
     <main className="mb-5 p-4 bg-blue-600 text-white flex justify-between ">
           <section className="flex gap-2 items-center justify-center">
             <ListAlt />
@@ -59,7 +59,7 @@ function Navbar() {
           </section>
     </main>
     <Outlet />
-    </main>
+    </>
   )
 }
 

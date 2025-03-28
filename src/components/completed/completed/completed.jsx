@@ -12,7 +12,7 @@ function Completed() {
   return (
     <>
     <Sort setSearchTerm={setSearchTerm} list="completed"/>
-    <ul className="w-[95vw] mx-auto border-t-1 border-t-gray-500">
+    <ul className="w-[95vw] mx-auto border-t-1 border-t-gray-500 animate-fadeInTransitive">
       {
         filtred.map((todo,index)=><ListElement key={todo.id} todo={todo} index={index}/>)
       }
