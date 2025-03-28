@@ -16,7 +16,9 @@ function ListItem({todo,index,last}) {
       <div>
         <div className="flex">
         <p className="text-2xl font-bold">{index+1})</p>
-        <EditTitle todo={pendingtodo[index]} index={index}/>
+        <EditTitle todo={pendingtodo[index]} 
+                   index={index}
+                   />
         </div>
         <button className="text-blue-500 hover:bg-blue-100 cursor-pointer px-6 py-1
                            transition-all duration-300 ease-in-out" 
@@ -31,7 +33,8 @@ function ListItem({todo,index,last}) {
                 <p>• at : {todo.creationDate.time}</p>
                 <Suspense fallback="loading ...">
                   <EditDescription todo={todo} 
-                                   index={index} />
+                                   index={index}
+                                    />
                 </Suspense>
               </div>
             </>

@@ -36,15 +36,17 @@ function EditDescription({todo,index}) {
                               }} />
              : <div className="rounded-lg overflow-hidden w-fit">
                 <button className="bg-blue-600 text-white py-1 px-4 hover:bg-blue-700 
-                                   transition-all duration-300 ease-in-out cursor-pointer disabled:bg-gray-400 disabled:cursor-auto"
+                                   transition-all duration-300 ease-in-out cursor-pointer border-r-1 border-r-white 
+                                   disabled:bg-gray-400 disabled:cursor-auto"
                         onClick={handleSubmit}
                         disabled={disabled}>
-                        <Close className="scale-130" />
+                        <Update className="scale-120" />
                 </button>
                 <button className="bg-red-600 text-white py-1 px-4  hover:bg-red-700 
                                    transition-all duration-300 ease-in-out cursor-pointer"
-                         onClick={()=>setEdit(false)}          >        
-                        <Update className="scale-120" />
+                         onClick={()=>setEdit(false)} >        
+                        
+                        <Close className="scale-130" />
                 </button>
              </div>
         }
