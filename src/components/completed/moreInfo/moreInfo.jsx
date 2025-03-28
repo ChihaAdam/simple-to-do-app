@@ -1,21 +1,15 @@
-import { Box } from "@mui/material"
-
 function MoreInfo({todo}) {
   return (
-    <Box sx={{
-        display:"flex",
-        flexDirection:"column",
-        gap:"10px"
-      }}>
-        <Box>
+    <div className="flex flex-col gap-2">
+        <div>
         <p>• created on : {todo.creationDate.date}</p>
         <p>• at : {todo.creationDate.time}</p>
-        </Box>
-        <Box>
+        </div>
+        <div>
         <p>• completed on : {todo.completionDate.date}</p>
         <p>• at : {todo.completionDate.time}</p>
-        </Box>
-    </Box>
+        </div>
+    </div>
   )
 }
 

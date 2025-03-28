@@ -1,20 +1,17 @@
 import { useState } from 'react';
 import TodoControl from '../todoControl/todoControl';
-import styles from './listItem.module.css'
 import { Suspense,lazy,memo } from 'react';
 import EditTitle from '../editTitle/editTitle';
 import {useSelector} from 'react-redux';
 const EditDescription = lazy(()=>import("../editDescription/editDescription"))
 
-const handleShowBtnStyle = {
-  width:"150px"
-}
-
 function ListItem({todo,index,last}) {
   const [showMore,setShowMore]=useState(false);
   const pendingtodo=useSelector(state=>state.pendingTodos.value);
   return (
-    <li className="flex justify-between items-center w-[95vw] m-auto border-b-1 border-b-gray-500 max-md:items-baseline max-md:flex-col max-md:gap-2 pb-2">
+    <li className="flex justify-between items-baseline w-[95vw] m-auto border-b-1 
+                border-b-gray-500 max-md:items-baseline max-md:flex-col max-md:gap-2 py-1
+                animate-fadeInTransitive">
       
       <div>
         <div className="flex">
@@ -29,9 +26,9 @@ function ListItem({todo,index,last}) {
           {
             showMore ? 
             <>
-              <div className="">
-                <p className={styles.subInfo}>• created on : {todo.creationDate.date}</p>
-                <p className={styles.subInfo}>• at : {todo.creationDate.time}</p>
+              <div>
+                <p>• created on : {todo.creationDate.date}</p>
+                <p>• at : {todo.creationDate.time}</p>
                 <Suspense fallback="loading ...">
                   <EditDescription todo={todo} 
                                    index={index} />

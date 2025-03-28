@@ -8,7 +8,7 @@ const ListItem = lazy(()=>import('../listItem/listItem'));
 function List({setAddTask}) {
   const pendingTodos = useSelector(pendingTasks);
   const [searchTerm,setSearchTerm]=useState("");
-  const filtred = [...[...pendingTodos].filter((element)=>element.title.includes(searchTerm))]
+  const filtred = [...pendingTodos].filter((element)=>element.title.includes(searchTerm))
   const searchResults = filtred.length
   return (
     <>
@@ -33,7 +33,7 @@ function List({setAddTask}) {
           pendingTodos.length==0 ? "enter your first task" : "no results found"
         }</div>
         }
-        <div className="bg-blue-600 hover:bg-blue-500 transition-all duration-300 ease-in-out cursor-pointer hover:shadow-sm hover:shadow-blue-600
+        <div className="bg-blue-600 hover:bg-blue-700 transition-all duration-300 ease-in-out cursor-pointer hover:shadow-sm hover:shadow-blue-600
                        text-white fixed bottom-8 right-8 rounded-full all 0.3s ease flex justify-center items-center p-3 animate-fadeIn" 
              onClick={()=>setAddTask(true)}>
               <AddTask className="scale-120" />

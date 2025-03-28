@@ -1,44 +1,10 @@
 
 import { useState,useCallback,memo } from 'react'
-import { TextField,Box,Input ,Button, InputLabel, DialogTitle} from '@mui/material';
 import { Close} from '@mui/icons-material';
 import { useDispatch} from 'react-redux';
 import { addtodo } from '../../../utils/state/slices/pendingTodo';
 
-const formStyle = {
-    display:"flex",
-    alignItems:"flex-end",
-    flexDirection:"column",
-    gap:"10px",
-    backgroundColor:"white",
-    boxShadow:"4px 4px 3px hsla(0,0%,50%,0.3)",
-    padding:"20px",
-    borderRadius:"10px",
-    border:"1px solid gray",
-    maxWidth:"100%",
-    margin:"auto",
-    animation:"fadeInTransitive 0.5s ease-in-out"
-}
-const fieldSetStyle = {
-    display:"flex",
-    flexDirection:"column",
-    alignItems:"baseline"
-}
-const containerStyle = {
-    width:"100vw",
-    height:"100vh",
-    position:"fixed",
-    top:"0px",
-    left:"0px",
-    display:"flex",
-    alignItems:"center",
-    backgroundColor:"hsla(0,0%,70%,0.2)",
-    backdropFilter:"blur(2px)",
-    animation:"fadeIn 0.3s ease-in-out"
-}
-
-
-function InputElement({close}) {
+function inputElement({close}) {
     const [task,setTask]=useState({
         title:"",
         description:""
@@ -60,37 +26,42 @@ function InputElement({close}) {
     },[task]);
 
     return (
-        <Box sx={containerStyle}>   
-        <Box onSubmit={handleFormSubmit} component="form" sx={formStyle}>
-            <Box sx={{display:"flex",justifyContent:"space-between",width:"100%"}}>
-            <DialogTitle>Add a new task</DialogTitle>
-            <Close onClick={close} sx={{cursor:"pointer"}} />
-            </Box>
-            <Box component="div" sx={fieldSetStyle}>
-            <InputLabel>Title of the task</InputLabel>
-            <Input  value={task.title}
-                    sx={{width:"350px"}}
+        <div className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center 
+                        bg-[hsla(0,0%,90%,0.3)] backdrop-blur-[2px] animate-fadeInTransitive">   
+        <form onSubmit={handleFormSubmit} 
+             className="bg-white border-1 rounded-md p-6 flex flex-col gap-6 shadow-xl animate-fadeIn">
+            <div className="flex justify-between w-full">
+            <h2 className="font-bold text-2xl">Add a new task</h2>
+            <Close onClick={close} className="cursor-pointer" />
+            </div>
+            <div className="flex flex-col">
+            <label>title of the task</label>
+            <input  value={task.title}
+                    className="w-96 outline-0 border-b-2 border-b-gray-500 focus:border-b-blue-500"
                     onChange={(e)=>setTask({...task,title:e.target.value})}>
-            </Input>
+            </input>
             
             <label style={{color:titleError ? "red":"black"}}>{titleCharacters}/{titleCharactersLimit}</label>
-            </Box>
-            <Box component="div" sx={fieldSetStyle}>
+            </div>
+            <div className="flex flex-col">
             <label>add a short description</label>
-            <TextField value={task.description}
-                       multiline maxRows={4}
-                       sx={{width:"350px"}}
+            <textarea value={task.description}
+                       rows="4"
+                       className="w-96 border-1 resize-none rounded-md"
                        onChange={(e)=>setTask({...task,description:e.target.value})}>
-            </TextField>
-            <label style={{color:descriptionError ? "red":"black"}}>{descriptionCharacters}/{descriptionCharactersLimit}</label>
-            </Box>
-            <Button
+            </textarea>
+            <label className={`${descriptionError?"text-red-500":"text-black"}`}>
+                {descriptionCharacters}/{descriptionCharactersLimit}
+            </label>
+            </div>
+            <button className="bg-blue-600 text-white py-1 text-lg rounded-lg 
+                             hover:bg-blue-700 transition-all duration-300 ease-in-out cursor-pointer"
                     disabled={error}
                     onClick={handleFormSubmit}
-                    variant="contained"> add task</Button>
-        </Box>
-        </Box>
+                    variant="contained"> add task</button>
+        </form>
+        </div>
     )
 }
 
-export default memo(InputElement)
+export default memo(inputElement)
