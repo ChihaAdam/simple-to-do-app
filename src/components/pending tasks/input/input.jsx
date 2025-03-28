@@ -34,10 +34,10 @@ function inputElement({close}) {
             <h2 className="font-bold text-2xl">Add a new task</h2>
             <Close onClick={close} className="cursor-pointer" />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col max-w-[80vw] min-w-[300px]">
             <label>title of the task</label>
             <input  value={task.title}
-                    className="w-96 outline-0 border-b-2 border-b-gray-500 focus:border-b-blue-500"
+                    className=" outline-0 border-b-2 border-b-gray-500 focus:border-b-blue-500"
                     onChange={(e)=>setTask({...task,title:e.target.value})}>
             </input>
             
@@ -47,7 +47,7 @@ function inputElement({close}) {
             <label>add a short description</label>
             <textarea value={task.description}
                        rows="4"
-                       className="w-96 border-1 resize-none rounded-md"
+                       className=" border-1 resize-none rounded-md"
                        onChange={(e)=>setTask({...task,description:e.target.value})}>
             </textarea>
             <label className={`${descriptionError?"text-red-500":"text-black"}`}>
