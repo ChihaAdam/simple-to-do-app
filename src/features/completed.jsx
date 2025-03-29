@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
-import Sort from "../../sort/sort.jsx";
-import ListElement from "../listElement/listElement";
-import {completedTasks} from '../../../utils/state/store.js'
+import Sort from "../components/sort/sort.jsx";
+import ListElement from "../components/completed/listElement/listElement.jsx";
+import {completedTasks} from '../utils/state/store.js'
 import { useState } from "react";
 
 function Completed() {

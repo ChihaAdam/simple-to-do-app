@@ -1,7 +1,7 @@
 import { Suspense,lazy, memo,useState } from 'react';
-import Loading from '../../static/loadingScreen/loading';
-const List =lazy(()=>import('../list/list'));
-const InputElement =lazy(()=>import("../input/input"));
+import Loading from '../components/static/loadingScreen/loading';
+const List =lazy(()=>import('../components/pending tasks/list/list'));
+const InputElement =lazy(()=>import("../components/pending tasks/input/input"));
 function PendingTodo() {
   const [addTask,setAddTask]=useState(false);
   return (

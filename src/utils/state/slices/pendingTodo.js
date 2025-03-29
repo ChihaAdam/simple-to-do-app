@@ -23,7 +23,7 @@ const initialState={
 }
 
 const pendingTodoSlice = createSlice({
-    name:"pendingto",
+    name:"pendingtodo",
     initialState,
     reducers:{
         addtodo:(state,task)=>{
