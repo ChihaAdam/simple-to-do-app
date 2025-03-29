@@ -8,7 +8,7 @@ function About() {
       <div>
         <h3 className="font-bold text-lg">what I've learned ?</h3>
         <p>
-          that project was a good practise for react-router-dom , state management with Redux/Redux-Toolkit , splitting bundle and lazy loading and we don't forget taiwind css
+          that project was a good practise for react-router-dom , state management with Redux/Redux-Toolkit , splitting bundle and lazy loading and we don't forget tailwind css
           that helped me a lot . 
         </p>
       </div>
