@@ -27,7 +27,7 @@ function Settings() {
           <div className='flex gap-2 items-center'>
             <input type="radio" 
                    name="mode"
-                   className="accent-red-500 transition-all duration-300 ease-in-out size-4" 
+                   className="accent-red-500 transition-all duration-300 ease-in-out size-5 hover:scale-120 cursor-pointer" 
                    checked={mode=="light"}
                    onChange={()=>Dispatch(changeMode('light'))}></input>
             <span className="text-lg">light mode</span>
@@ -35,7 +35,7 @@ function Settings() {
           <div className="flex gap-2 items-center">
             <input type="radio"
                    name="mode" 
-                   className="accent-red-500 size-4"
+                   className="accent-red-500 size-5 hover:scale-120 cursor-pointer transition-all duration-300 ease-in-out"
                    checked={mode=="dark"}
                    onChange={()=>Dispatch(changeMode('dark'))}></input>
             <span className="text-lg">dark mode</span>

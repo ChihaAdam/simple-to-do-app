@@ -3,7 +3,7 @@ import {Suspense,lazy,useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import { styling } from './utils/state/store.js';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
-import Navbar from './components/navbar/navbar';
+import Navbar from './features/navbar';
 const About = lazy(()=>import('./features/about.jsx'));
 const Pending = lazy(()=>import("./features/pendingTodo"));
 const Completed = lazy(()=>import("./features/completed.jsx"));
@@ -57,7 +57,7 @@ function App() {
   useEffect(()=>{
     if (mode=="light") document.body.classList.remove('dark');
     else document.body.classList.add('dark');
-  },[style])
+  },[mode])
   return (
     <Suspense fallback={<Loading />}>
       <RouterProvider router={router} />

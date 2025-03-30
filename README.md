@@ -7,7 +7,6 @@ A sleek and efficient todo list application built with React, leveraging Redux, 
 ### 🔹 Task Management
 - Intuitive task creation and management
 - Inline task editing
-- Drag-and-drop task reordering
 - Easy task completion tracking
 
 ### 🔹 Smart Organization

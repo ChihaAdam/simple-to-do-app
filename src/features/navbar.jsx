@@ -3,7 +3,7 @@ import { ListAlt, Menu} from "@mui/icons-material"
 import { memo,useState } from "react"
 import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
-import {styling} from '../../utils/state/store.js'
+import {styling} from '../utils/state/store.js'
 
 const paths=[{
   name:"pending tasks",
