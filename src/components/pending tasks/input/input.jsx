@@ -27,12 +27,12 @@ function inputElement({close}) {
 
     return (
         <div className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center 
-                        bg-[hsla(0,0%,90%,0.3)] backdrop-blur-[2px] animate-fadeInTransitive">   
+                        bg-[hsla(0,0%,10%,0.3)] backdrop-blur-[2px] animate-fadeIn">   
         <form onSubmit={handleFormSubmit} 
-             className="bg-white dark:bg-gray-800 border-1 rounded-lg p-6 flex flex-col gap-6 shadow-xl animate-fadeIn">
+             className="bg-white dark:bg-gray-800 border-1 rounded-lg p-6 flex flex-col gap-6 shadow-xl animate-fadeInTransitive">
             <div className="flex justify-between w-full">
             <h2 className="font-bold text-2xl">Add a new task</h2>
-            <Close onClick={close} className="cursor-pointer" />
+            <Close onClick={close} className="cursor-pointer opacity-50 hover:opacity-100 transition-all duration-300 ease-in-out" />
             </div>
             <div className="flex flex-col max-w-[80vw] min-w-[300px]">
             <label>title of the task</label>
