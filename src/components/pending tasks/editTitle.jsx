@@ -11,12 +11,15 @@ function EditTitle({todo,index}) {
   const [text,setText]=useState(todo.title);
   const numberOfCharacters=text.length;
   const disabled = (text.trim()==="") || numberOfCharacters>allowedCharacters;
-  const handleSubmit = (event)=>{
-    event.preventDefault();
+  const handleSubmit = ()=>{
     dispatch(()=>editTaskTitle({
       index:index,
       newText:text
     }))
+    setEdit(false);
+  }
+  const handleDiscard =()=>{
+    setText(todo.title);
     setEdit(false);
   }
   const inputRef = useRef(null);
@@ -43,7 +46,7 @@ function EditTitle({todo,index}) {
                 </button>
                 <button className="py-1 px-4 text-white bg-red-500 hover:bg-red-700 transition-all duration-300
                                     ease-in-out cursor-pointer"
-                        onClick={()=>setEdit(false)}>
+                        onClick={handleDiscard}>
                 <Close />
                 </button>
              </div>

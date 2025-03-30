@@ -18,6 +18,10 @@ function EditDescription({todo,index}) {
     }))
     setEdit(false);
   }
+  const handleDiscard=()=>{
+    setText(todo.description);
+    setEdit(false);
+  }
   const inputRef = useRef(null);
   return (
         <div className="flex flex-col gap-2 relative">
@@ -46,7 +50,7 @@ function EditDescription({todo,index}) {
                 </button>
                 <button className="bg-red-600 text-white py-1 px-4  hover:bg-red-700 
                                    transition-all duration-300 ease-in-out cursor-pointer"
-                         onClick={()=>setEdit(false)} >        
+                         onClick={handleDiscard} >        
                         
                         <Close className="scale-130" />
                 </button>
