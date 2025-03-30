@@ -55,7 +55,8 @@ function inputElement({close}) {
             </label>
             </div>
             <button className="bg-blue-600 text-white py-1 text-lg rounded-lg 
-                             hover:bg-blue-700 transition-all duration-300 ease-in-out cursor-pointer"
+                             hover:bg-blue-700 transition-all duration-300 
+                             ease-in-out cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed"
                     disabled={error}
                     onClick={handleFormSubmit}
                     variant="contained"> add task</button>
