@@ -27,7 +27,6 @@ function ListItem({todo,index,last}) {
                       </button>
           {
             showMore ? 
-            <>
               <div>
                 <p>• created on : {todo.creationDate.date}</p>
                 <p>• at : {todo.creationDate.time}</p>
@@ -37,7 +36,6 @@ function ListItem({todo,index,last}) {
                                     />
                 </Suspense>
               </div>
-            </>
             : null
           }
       </div>
