@@ -9,6 +9,10 @@ function MoreInfo({todo}) {
         <p>• completed on : {todo.completionDate.date}</p>
         <p>• at : {todo.completionDate.time}</p>
         </div>
+        <div>
+          <p>description :</p>
+          <textarea className="outline-0 border-1 border-gray-500 resize-none" rows="4" value={todo.description} readOnly ></textarea>
+        </div>
     </div>
   )
 }
