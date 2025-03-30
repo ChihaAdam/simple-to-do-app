@@ -35,6 +35,7 @@ function List({setAddTask}) {
         }
         <div className="bg-blue-600 hover:bg-blue-700 transition-all duration-300 ease-in-out cursor-pointer hover:shadow-sm hover:shadow-blue-600
                        text-white fixed bottom-8 right-8 rounded-full all 0.3s ease flex justify-center items-center p-3 animate-fadeIn" 
+             title="add a new task"
              onClick={()=>setAddTask(true)}>
               <AddTask className="scale-120" />
         </div>

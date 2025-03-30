@@ -10,7 +10,7 @@ function ListElement({todo,index}) {
         <h5 className="text-lg font-bold">{index+1}/</h5>
         <h6>{todo.title}</h6>
     </div>
-    <button className="text-blue-500 hover:bg-blue-100 cursor-pointer px-6
+    <button className="text-blue-500 hover:bg-[#007bff45] cursor-pointer px-6
                       transition-all duration-300 ease-in-out" 
           onClick={()=>setShowMore(!showMore)}>
             {showMore?"show less":"show more"}

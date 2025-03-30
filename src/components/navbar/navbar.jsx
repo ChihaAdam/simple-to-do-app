@@ -34,7 +34,7 @@ function Navbar() {
   const color = style.color;
   return (
     <>
-    <main className={`mb-5 p-4 ${color} text-white flex justify-between `}>
+    <main className={`mb-5 p-4 ${color} text-white flex justify-between`}>
           <section className="flex gap-2 items-center justify-center">
             <ListAlt />
             <h1 className="text-4xl font-bold">to do list app</h1>

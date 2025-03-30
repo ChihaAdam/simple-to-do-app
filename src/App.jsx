@@ -1,5 +1,7 @@
 import Loading from './components/static/loadingScreen/loading';
-import {Suspense,lazy} from 'react';
+import {Suspense,lazy,useEffect} from 'react';
+import { useSelector } from 'react-redux';
+import { styling } from './utils/state/store.js';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import Navbar from './components/navbar/navbar';
 const About = lazy(()=>import('./features/about.jsx'));
@@ -49,7 +51,13 @@ const router=createBrowserRouter([{
 }])
 
 function App() {
-  
+  const style = useSelector(styling);
+  const mode=style.mode;
+
+  useEffect(()=>{
+    if (mode=="light") document.body.classList.remove('dark');
+    else document.body.classList.add('dark');
+  },[style])
   return (
     <Suspense fallback={<Loading />}>
       <RouterProvider router={router} />

@@ -20,7 +20,7 @@ function ListItem({todo,index,last}) {
                    index={index}
                    />
         </div>
-        <button className="text-blue-500 hover:bg-blue-100 cursor-pointer px-6 py-1
+        <button className="text-blue-500 hover:bg-[#007bff45] cursor-pointer px-6 py-1
                            transition-all duration-300 ease-in-out" 
                 onClick={()=>setShowMore(!showMore)}>
                         {showMore?"show less":"show more"}

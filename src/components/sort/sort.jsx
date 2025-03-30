@@ -34,12 +34,12 @@ function Sort({setSearchTerm,list}) {
         <h4>sort by :</h4>
         <div className="flex border-1 border-blue-400 rounded-lg overflow-hidden">
         <button className={`px-4 py-1 border-r-1 border-r-blue-400 cursor-pointer transition-all 
-                            duration-300 ease-in-out ${sortType=="name"?"bg-blue-700 text-white":"hover:bg-blue-100"}`}
+                            duration-300 ease-in-out ${sortType=="name"?"bg-blue-700 text-white":"hover:bg-[#002aff52]"}`}
                 onClick={()=>handleSort("name",sortMode)}>
         <SortByAlpha />
         </button>
         <button className={`px-4 py-1 cursor-pointer transition-all duration-300 
-                            ease-in-out ${sortType=="date"?"bg-blue-700 text-white":"hover:bg-blue-100"}`}
+                            ease-in-out ${sortType=="date"?"bg-blue-700 text-white":"hover:bg-[#002aff52]"}`}
                 onClick={()=>handleSort("date",sortMode)}>
         <DateRange />
         </button>
@@ -47,12 +47,12 @@ function Sort({setSearchTerm,list}) {
         <h6>in :</h6>
         <div className="flex border-1 border-violet-700 rounded-lg overflow-hidden">
         <button className={`px-4 py-1 border-r-1 border-r-violet-400 cursor-pointer transition-all 
-                            duration-300 ease-in-out ${sortMode=="1"?"bg-violet-700 text-white":"hover:bg-violet-100"}`}
+                            duration-300 ease-in-out ${sortMode=="1"?"bg-violet-700 text-white":"hover:bg-[#a067e152]"}`}
                 onClick={()=>handleSort(sortType,"1")}>
         <SortRounded sx={{transform:"rotateX(-180deg)"}} />
         </button>
         <button className={`px-4 py-1 border-r-1 border-r-violet-400 cursor-pointer transition-all 
-                            duration-300 ease-in-out ${sortMode=="0"?"bg-violet-700 text-white":"hover:bg-violet-100"}`}
+                            duration-300 ease-in-out ${sortMode=="0"?"bg-violet-700 text-white":"hover:bg-[#a067e152]"}`}
                 onClick={()=>handleSort(sortType,"0")}>
         <SortRounded />
         </button>

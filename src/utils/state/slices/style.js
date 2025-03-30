@@ -14,7 +14,7 @@ const stylingSlice = createSlice({
         changeMode:(state,action)=>{
             const newMode=action.payload;
             state.value.mode=newMode;
-            setToLocal("viewMode",state.value);
+            setToLocal("viewMode",state.value.mode);
         },
         changeColor:(state,action)=>{
             const newColor=action.payload;
