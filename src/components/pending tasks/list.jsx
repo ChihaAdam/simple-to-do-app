@@ -29,9 +29,9 @@ function List({setAddTask}) {
               </ul>
           </div>
         :
-        <div className="w-[95vw] m-auto border-t-1 border-t-gray-500 text-center pt-2">{
-          pendingTodos.length==0 ? "enter your first task" : "no results found"
-        }</div>
+        <div className="w-[95vw] m-auto border-t-1 border-t-gray-500 text-center pt-2">
+          {pendingTodos.length==0 ? "enter your first task" : "no results found"}
+          </div>
         }
         <div className="bg-blue-600 hover:bg-blue-700 transition-all duration-300 ease-in-out cursor-pointer hover:shadow-sm hover:shadow-blue-600
                        text-white fixed bottom-8 right-8 rounded-full all 0.3s ease flex justify-center items-center p-3 animate-fadeIn" 

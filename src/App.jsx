@@ -59,9 +59,7 @@ function App() {
     else document.body.classList.add('dark');
   },[mode])
   return (
-    <Suspense fallback={<Loading />}>
-      <RouterProvider router={router} />
-    </Suspense>
+    <RouterProvider router={router} />
   )
 }
 
