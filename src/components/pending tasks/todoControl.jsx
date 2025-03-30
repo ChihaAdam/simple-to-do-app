@@ -1,8 +1,8 @@
 
 import { Done, MoveDown, MoveUp } from '@mui/icons-material'
 import { useDispatch } from 'react-redux'
-import { movetodoDown, movetodoup,remove } from '../../../utils/state/slices/pendingTodo'
-import { completeTodo } from '../../../utils/state/slices/completedTodo'
+import { movetodoDown, movetodoup,remove } from '../../utils/state/slices/pendingTodo'
+import { completeTodo } from '../../utils/state/slices/completedTodo'
 
 function TodoControl({todo,disabledUp,disabledDown,index}) {
   const dispatch = useDispatch();

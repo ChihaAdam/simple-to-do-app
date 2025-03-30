@@ -1,6 +1,6 @@
 
 import { lazy,Suspense } from "react"
-const MoreInfo = lazy (()=>import("../moreInfo/moreInfo.jsx"))
+const MoreInfo = lazy (()=>import("./moreInfo.jsx"))
 
 function ListElement({todo,index}) {
   return (

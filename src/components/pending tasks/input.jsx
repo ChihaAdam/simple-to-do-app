@@ -1,8 +1,8 @@
 
-import { useState,useCallback,memo } from 'react'
-import { Close} from '@mui/icons-material';
-import { useDispatch} from 'react-redux';
-import { addtodo } from '../../../utils/state/slices/pendingTodo';
+import {useState,useCallback,memo} from 'react'
+import {Close} from '@mui/icons-material';
+import {useDispatch} from 'react-redux';
+import {addtodo} from '../../utils/state/slices/pendingTodo';
 
 function inputElement({close}) {
     const [task,setTask]=useState({

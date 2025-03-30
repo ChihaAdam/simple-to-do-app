@@ -1,10 +1,10 @@
 import {lazy,Suspense} from 'react';
-import Sort from '../../sort/sort.jsx';
+import Sort from '../sort/sort.jsx';
 import {useSelector} from 'react-redux';
 import { AddTask } from '@mui/icons-material';
 import { useState } from 'react';
-import {pendingTasks} from '../../../utils/state/store.js'
-const ListItem = lazy(()=>import('../listItem/listItem'));
+import {pendingTasks} from '../../utils/state/store.js'
+const ListItem = lazy(()=>import('./listItem.jsx'));
 function List({setAddTask}) {
   const pendingTodos = useSelector(pendingTasks);
   const [searchTerm,setSearchTerm]=useState("");

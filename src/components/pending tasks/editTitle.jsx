@@ -1,7 +1,7 @@
 import {useState ,useRef} from 'react'
 import { Close, Edit, Update } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
-import { editTaskTitle } from '../../../utils/state/slices/pendingTodo';
+import { editTaskTitle } from '../../utils/state/slices/pendingTodo';
 function EditTitle({todo,index}) {
   const dispatch = useDispatch();
   const [edit,setEdit]=useState(false);

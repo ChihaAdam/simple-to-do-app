@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import TodoControl from '../todoControl/todoControl';
+import TodoControl from './todoControl.jsx';
 import { Suspense,lazy,memo } from 'react';
-import EditTitle from '../editTitle/editTitle';
+import EditTitle from './editTitle.jsx';
 import {useSelector} from 'react-redux';
-const EditDescription = lazy(()=>import("../editDescription/editDescription"))
+const EditDescription = lazy(()=>import("./editDescription.jsx"))
 
 function ListItem({todo,index,last}) {
   const [showMore,setShowMore]=useState(false);
