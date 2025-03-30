@@ -4,6 +4,9 @@ import {Close} from '@mui/icons-material';
 import {useDispatch} from 'react-redux';
 import {addtodo} from '../../utils/state/slices/pendingTodo';
 
+const descriptionCharactersLimit=500;
+const titleCharactersLimit=30;
+
 function inputElement({close}) {
     const [task,setTask]=useState({
         title:"",
@@ -11,10 +14,10 @@ function inputElement({close}) {
     });
 
     const dispatch = useDispatch();
-    const descriptionCharactersLimit=500;
+    
     const descriptionCharacters=task.description.length;
     const titleCharacters=task.title.length;
-    const titleCharactersLimit=30;
+    
     const titleError =  task.title.trim()==="" || titleCharacters>titleCharactersLimit;
     const descriptionError =  descriptionCharacters>descriptionCharactersLimit;
     const error = ( titleError || descriptionError );

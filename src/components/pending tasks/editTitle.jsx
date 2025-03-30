@@ -2,12 +2,14 @@ import {useState ,useRef} from 'react'
 import { Close, Edit, Update } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 import { editTaskTitle } from '../../utils/state/slices/pendingTodo';
+
+const allowedCharacters = 30;
+
 function EditTitle({todo,index}) {
   const dispatch = useDispatch();
   const [edit,setEdit]=useState(false);
   const [text,setText]=useState(todo.title);
   const numberOfCharacters=text.length;
-  const allowedCharacters = 30;
   const disabled = (text.trim()==="") || numberOfCharacters>allowedCharacters;
   const handleSubmit = (event)=>{
     event.preventDefault();

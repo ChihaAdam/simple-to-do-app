@@ -2,12 +2,14 @@ import { useState ,useRef} from 'react'
 import { Close, Edit, Update } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 import { editTakDescription } from '../../utils/state/slices/pendingTodo';
+
+const allowedCharacters = 500;
+
 function EditDescription({todo,index}) {
   const [edit,setEdit]=useState(false);
   const dispatch=useDispatch();
   const [text,setText]=useState(todo.description);
   const numberOfCharacters=text.length;
-  const allowedCharacters = 500;
   const disabled =numberOfCharacters>allowedCharacters;
   const handleSubmit = ()=>{
     dispatch(editTakDescription({
