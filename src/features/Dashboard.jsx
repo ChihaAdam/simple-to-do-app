@@ -10,9 +10,8 @@ function Dashboard() {
     { name: "Pending", value: pending.length },
   ];
   return (
-    <>
-    <div className="flex flex-col justify-center items-center w-fit border-1 m-auto p-4 rounded-lg shadow-md bg-white dark:bg-gray-800 dark:text-white">
-      <h2 className="m-0 text-2xl font-bold text-blue-500">Tasks distribution</h2>
+    <div className=" w-fit mx-auto p-6 my-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-2xl">
+      <h2 className="mb-2 text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent"> Task Analytics Overview</h2>
       <PieChart width={400} height={400}>
       <Pie
         data={PieData}
@@ -31,10 +30,6 @@ function Dashboard() {
       <Legend layout="vertical" />
     </PieChart>
     </div>
-    <div>
-
-    </div>
-    </>
   )
 }
 
