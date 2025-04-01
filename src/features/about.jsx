@@ -12,7 +12,6 @@ function About() {
           that helped me a lot . 
         </p>
       </div>
-      <p className="underline underline-offset-4">the dashboard section is empty for now and I will fill it when I learn plots in ReactJS .</p>
       <p className="mt-24 text-center border-1 p-2">
         if you have any suggeestions or something to improve don't hesitate to mail me on <span>    </span>
         <a href="mailto:chihaadam137@gmail.com" 

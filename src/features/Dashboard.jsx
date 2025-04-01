@@ -18,31 +18,29 @@ function Dashboard() {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width < 480) { // mobile
+      if (width < 480) { 
         setChartDimensions({ width: 300, height: 300 });
-      } else if (width < 768) { // tablet
+      } else if (width < 768) { 
         setChartDimensions({ width: 350, height: 350 });
-      } else { // desktop
+      } else { 
         setChartDimensions({ width: 400, height: 400 });
       }
     };
-
-    handleResize(); // Initial size
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
-    <div className="w-full max-w-[95vw] md:max-w-2xl lg:max-w-4xl mx-auto p-4 sm:p-6 my-4 sm:my-8 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700">
-      <h2 className="mb-4 sm:mb-8 text-xl sm:text-2xl lg:text-3xl font-bold text-center bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+    <div className="w-fit md:max-w-2xl lg:max-w-4xl mx-auto p-4 sm:p-6 my-4 sm:my-8 bg-white dark:bg-gray-800 
+                    rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 animate-fadeInTransitive 
+                    flex flex-col justify-center items-center">
+      <h2 className="mb-4 sm:mb-8 text-xl sm:text-2xl lg:text-3xl font-bold text-center bg-gradient-to-r from-blue-600 
+                    to-cyan-500 bg-clip-text text-transparent">
         Task Analytics Overview
       </h2>
-      <div className="flex justify-center items-center w-full overflow-x-auto">
         <PieChart width={chartDimensions.width} height={chartDimensions.height}>
           <Pie
             data={PieData}
-            cx={chartDimensions.width / 2}
-            cy={chartDimensions.height / 2}
             innerRadius={chartDimensions.width * 0.175}
             outerRadius={chartDimensions.width * 0.25}
             fill="#8884d8"
@@ -61,7 +59,6 @@ function Dashboard() {
           />
         </PieChart>
       </div>
-    </div>
   );
 }
 
