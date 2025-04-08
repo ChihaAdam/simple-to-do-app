@@ -1,4 +1,4 @@
-import { Suspense,lazy, memo,useState } from 'react';
+import { Suspense,lazy,useState } from 'react';
 import Loading from '../components/static/loadingScreen/loading';
 const List =lazy(()=>import('../components/pending tasks/list'));
 const InputElement =lazy(()=>import("../components/pending tasks/input"));
@@ -14,4 +14,4 @@ function PendingTodo() {
   )
 }
 
-export default memo(PendingTodo)
+export default PendingTodo

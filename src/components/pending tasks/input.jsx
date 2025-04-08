@@ -1,5 +1,5 @@
 
-import {useState,useCallback,memo} from 'react'
+import {useState} from 'react'
 import {Close} from '@mui/icons-material';
 import {useDispatch} from 'react-redux';
 import {addtodo} from '../../utils/state/slices/pendingTodo';
@@ -22,11 +22,11 @@ function inputElement({close}) {
     const descriptionError =  descriptionCharacters>descriptionCharactersLimit;
     const error = ( titleError || descriptionError );
 
-    const handleFormSubmit =useCallback((event)=>{
+    const handleFormSubmit =(event)=>{
         event.preventDefault();
         dispatch(addtodo(task));
         close();
-    },[task]);
+    }
 
     return (
         <div className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center 
@@ -68,4 +68,4 @@ function inputElement({close}) {
     )
 }
 
-export default memo(inputElement)
+export default inputElement

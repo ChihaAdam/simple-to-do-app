@@ -1,6 +1,6 @@
 
-import { ListAlt, Menu} from "@mui/icons-material"
-import { memo,useState } from "react"
+import { ListAlt, Menu } from "@mui/icons-material"
+import { useState } from "react"
 import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import {styling} from '../utils/state/store.js'
@@ -46,7 +46,7 @@ function Navbar() {
                     className={`p-2 hover:bg-[#00000020] cursor-pointer transition duration-300 ease-in-out 
                               active:bg-[hsla(0,0%,100%,0.4)] border-b-transparent hidden lg:block
                                 ${element.path==pathName ? "border-b-2 border-b-white":""}`}
-                                
+
                     onClick={()=>navigate(element.path)}>
                     {element.name}
             </button>)
@@ -62,8 +62,10 @@ function Navbar() {
                                   ${element.path==pathName ? "bg-gray-400":""}`}
                                 
                       onClick={()=>navigate(element.path)}>
-                {element.name}
-                    </li>
+
+                  {element.name}
+
+                  </li>
                 )
               }
             </ul>
@@ -75,4 +77,4 @@ function Navbar() {
   )
 }
 
-export default memo(Navbar)
+export default Navbar
