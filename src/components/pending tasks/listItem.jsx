@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import TodoControl from './todoControl.jsx';
-import { Suspense,lazy,memo } from 'react';
+import { Suspense,lazy} from 'react';
 import EditTitle from './editTitle.jsx';
 import {useSelector} from 'react-redux';
 const EditDescription = lazy(()=>import("./editDescription.jsx"))
@@ -48,4 +48,4 @@ function ListItem({todo,index,last}) {
   )
 }
 
-export default memo(ListItem)
+export default ListItem
