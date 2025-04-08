@@ -43,8 +43,10 @@ function Navbar() {
           {
             paths.map((element,index)=>
             <button key={index} 
-                    className={`p-2 hover:bg-[#00000020] cursor-pointer transition duration-300 ease-in-out active:bg-[hsla(0,0%,100%,0.4)] border-b-transparent hidden lg:block
+                    className={`p-2 hover:bg-[#00000020] cursor-pointer transition duration-300 ease-in-out 
+                              active:bg-[hsla(0,0%,100%,0.4)] border-b-transparent hidden lg:block
                                 ${element.path==pathName ? "border-b-2 border-b-white":""}`}
+                                
                     onClick={()=>navigate(element.path)}>
                     {element.name}
             </button>)
@@ -55,9 +57,11 @@ function Navbar() {
               {
                 paths.map((element,index)=>
                   <li key={index} 
-                className={` text-black p-2 hover:bg-gray-300 cursor-pointer transition duration-300 ease-in-out active:bg-gray-400 border-b-transparent
-                            ${element.path==pathName ? "bg-gray-400":""}`}
-                onClick={()=>navigate(element.path)}>
+                      className={` text-black p-2 hover:bg-gray-300 cursor-pointer transition duration-300 
+                                  ease-in-out active:bg-gray-400 border-b-transparent
+                                  ${element.path==pathName ? "bg-gray-400":""}`}
+                                
+                      onClick={()=>navigate(element.path)}>
                 {element.name}
                     </li>
                 )
