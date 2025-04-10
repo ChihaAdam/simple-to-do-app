@@ -1,25 +1,38 @@
 # Modern Todo List Application 🚀
 
-A sleek and efficient todo list application built with React, leveraging Redux, Tailwind CSS, and modern web development practices.
+A feature-rich task management application built with React 19, Redux Toolkit, and Tailwind CSS, featuring an intuitive interface, data visualization, and theme customization.
 
 ## ✨ Features
 
 ### 🔹 Task Management
-- Intuitive task creation and management
-- Inline task editing
-- Easy task completion tracking
+- Create, edit, and complete tasks with descriptions
+- Inline title and description editing
+- Task prioritization with up/down controls
+- Detailed task information with timestamps
 
 ### 🔹 Smart Organization
-- Flexible sorting (by name or date)
-- Instant task search
-- Dedicated completed tasks view
-- Clean, user-friendly interface
+- Dynamic sorting by name or date
+- Real-time search functionality
+- Separate views for pending and completed tasks
+- Visual task progress tracking
 
-### 🔹 Advanced Capabilities
-- Persistent local storage
-- Keyboard shortcut support
-- Real-time search filtering
-- Fully responsive design
+### 🔹 Analytics Dashboard
+- Interactive pie chart visualization
+- Task completion statistics
+- Responsive chart sizing
+- Clear data representation
+
+### 🔹 Customization
+- Dark/Light mode toggle
+- Customizable theme colors
+- Persistent theme settings
+- Smooth theme transitions
+
+### 🔹 Advanced Features
+- Local storage persistence
+- Responsive design for all devices
+- Lazy loading for better performance
+- Smooth animations and transitions
 
 ## 🛠 Tech Stack
 
@@ -29,9 +42,10 @@ A sleek and efficient todo list application built with React, leveraging Redux, 
 | State Management | Redux Toolkit |
 | Routing | React Router DOM |
 | Styling | Tailwind CSS |
+| Charts | Recharts |
+| Icons | Material Icons |
 | Build Tool | Vite |
 | Code Quality | ESLint |
-| Icons | Material Icons |
 
 ## 🚀 Quick Start
 
@@ -40,24 +54,16 @@ A sleek and efficient todo list application built with React, leveraging Redux, 
 - npm or yarn
 
 ### Installation
-1. Clone the repository
 ```bash
+# Clone the repository
 git clone https://github.com/yourusername/todo-app.git
 cd todo-app
-```
 
-2. Install dependencies
-```bash
+# Install dependencies
 npm install
-# or
-yarn install
-```
 
-3. Run the development server
-```bash
+# Start development server
 npm run dev
-# or
-yarn dev
 ```
 
 ## 📂 Project Structure
@@ -67,33 +73,57 @@ todo/
 │   ├── components/
 │   │   ├── completed/
 │   │   ├── pending/
-│   │   └── shared/
+│   │   ├── sort/
+│   │   └── static/
+│   ├── features/
+│   │   ├── Dashboard.jsx
+│   │   ├── settings.jsx
+│   │   └── ...
 │   ├── utils/
 │   │   ├── state/
-│   │   └── hooks/
+│   │   ├── hooks/
+│   │   └── date.js
 │   └── App.jsx
-├── tailwind.config.js
-└── vite.config.js
+```
+
+## 🎯 Key Features Implementation
+
+### Theme Customization
+```jsx
+const colors = [
+  "bg-blue-600", "bg-green-700", "bg-red-600",
+  "bg-violet-500", "bg-yellow-500", "bg-gray-500",
+  "bg-cyan-500", "bg-orange-500", "bg-pink-500",
+  "bg-sky-500"
+];
+```
+
+### Analytics Dashboard
+```jsx
+const PieData = [
+  { name: "Completed", value: completed.length },
+  { name: "Pending", value: pending.length }
+];
 ```
 
 ## 🔮 Upcoming Enhancements
-- [ ] Dark mode support
-- [ ] Task categorization
-- [ ] Due date tracking
-- [ ] Subtask management
-- [ ] Import/Export functionality
+- [ ] Task categories/tags
+- [ ] Due date reminders
+- [ ] Subtask support
+- [ ] Data export/import
+- [ ] Task sharing capabilities
 
 ## 🤝 Contributing
-Contributions are welcome! Please follow these steps:
+We welcome contributions! Please follow these steps:
 
 1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
 ## 📄 License
-[Choose an appropriate license, e.g., MIT]
+[Choose an appropriate license]
 
 ## 📧 Contact
 **Adam Chiha**
@@ -101,4 +131,4 @@ Contributions are welcome! Please follow these steps:
 - GitHub: [https://github.com/ChihaAdam]
 
 ---
-Crafted with ❤️ by Adam Chiha
+Built with 💻 by Adam Chiha
