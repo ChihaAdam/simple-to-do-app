@@ -5,8 +5,7 @@ function useLocalStorage(key,info){
     const [item,setItem]=useState(
         ()=>{
             const local=getFromLocal(key);
-            if (local) 
-                return local;
+            if (local) return local;
             return info;
         }
     );

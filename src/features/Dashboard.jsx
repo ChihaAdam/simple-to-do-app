@@ -1,30 +1,29 @@
 import { PieChart, Cell, Pie, Legend } from "recharts"
 import { useSelector } from "react-redux";
 import { completedTasks, pendingTasks } from "../utils/state/store";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 const pieColors = ["#0088FE", "#00C49F"];
+const dimensions = ()=>{
+  const width = window.innerWidth;
+  if (width < 480) return { width: 300, height: 300 };
+  else if (width < 768) return{ width: 350, height: 350 };
+  return{ width: 400, height: 400 };
 
+}
 function Dashboard() {
   const completed = useSelector(completedTasks);
   const pending = useSelector(pendingTasks);
-  const [chartDimensions, setChartDimensions] = useState({ width: 400, height: 400 });
+  const [chartDimensions, setChartDimensions] = useState(dimensions);
 
   const PieData = [
     { name: "Completed", value: completed.length },
-    { name: "Pending", value: pending.length },
+    { name: "Pending", value: pending.length }
   ];
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
-      const width = window.innerWidth;
-      if (width < 480) { 
-        setChartDimensions({ width: 300, height: 300 });
-      } else if (width < 768) { 
-        setChartDimensions({ width: 350, height: 350 });
-      } else { 
-        setChartDimensions({ width: 400, height: 400 });
-      }
+      setChartDimensions(dimensions);
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);

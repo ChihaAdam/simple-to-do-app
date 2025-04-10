@@ -16,9 +16,9 @@ function Settings() {
             <h3 className="text-2xl font-bold ">color :</h3>
             <div className="grid grid-cols-5 w-fit gap-2">
                 {colors.map((color,index)=><div key={index}
+                                                onClick={()=>Dispatch(changeColor(color))}
                                                 className={`cursor-pointer transition-all duration-300 ease-in-out  w-7 h-7 rounded-full 
-                                                            ${color} ${colorMode==color? "border-2 scale-120":"border-1"}`}
-                                                onClick={()=>Dispatch(changeColor(color))}>
+                                                            ${color} ${colorMode==color? "border-2 scale-120":"border-1"}`}>
                                                </div>)}
             </div>
         </div>
