@@ -11,6 +11,13 @@ function EditTitle({todo,index}) {
   const [text,setText]=useState(todo.title);
   const numberOfCharacters=text.length;
   const disabled = (text.trim()==="") || numberOfCharacters>allowedCharacters;
+  const inputRef = useRef(null);
+
+  const handleEdit = ()=>{
+    setEdit(true);
+    inputRef.current.focus();                                                                                     inputRef.current.focus();
+  }
+
   const handleSubmit = ()=>{
     dispatch(()=>editTaskTitle({
       index:index,
@@ -18,11 +25,12 @@ function EditTitle({todo,index}) {
     }))
     setEdit(false);
   }
+
   const handleDiscard =()=>{
     setText(todo.title);
     setEdit(false);
   }
-  const inputRef = useRef(null);
+  
   return (
     <div>
         <div className="flex gap-2 ">
@@ -33,10 +41,7 @@ function EditTitle({todo,index}) {
                 ref={inputRef}>
         </input>
     {
-        !edit ? <Edit className="opacity-50 hover:opacity-100 cursor-pointer" onClick={()=>{
-                                                            setEdit(true);
-                                                            inputRef.current.focus();
-                                                        }} />
+        !edit ? <Edit className="opacity-50 hover:opacity-100 cursor-pointer" onClick={handleEdit}/>
              : <div className="rounded-lg overflow-hidden">
                 <button className="py-1 px-4 text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300
                   ease-in-out cursor-pointer disabled:bg-gray-400 border-r-1 border-r-white"
