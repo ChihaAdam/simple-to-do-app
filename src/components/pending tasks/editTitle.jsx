@@ -15,7 +15,7 @@ function EditTitle({todo,index}) {
 
   const handleEdit = ()=>{
     setEdit(true);
-    inputRef.current.focus();                                                                                     inputRef.current.focus();
+    inputRef.current.focus();                                                
   }
 
   const handleSubmit = ()=>{
